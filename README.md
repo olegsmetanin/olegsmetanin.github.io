@@ -1,2 +1,5 @@
-# olegsmetanin.github.io
-Personal Page
+# http://oleg.smetan.in page
+
+gulp
+
+gulp deploypages
