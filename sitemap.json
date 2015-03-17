@@ -1,0 +1,41 @@
+{
+    "/experiment/blog": {
+        "type": "experiment",
+        "date": "2015-03-17T12:49:26.733Z",
+        "title": "This blog :)",
+        "tags": ["es7", "react", "react-router", "flummox", "lunr", "superagent", "gulp", "webpack"],
+        "src": "data/experiments/blog/2015-03-17.md"
+    },
+
+    "/experiment/githubrepoviewer": {
+        "type": "experiment",
+        "date": "2015-03-13T15:49:26.733Z",
+        "title": "Use GitHub API to search and view GitHub repos.",
+        "tags": ["es7", "react", "react-router", "flummox", "lunr", "superagent", "gulp", "webpack", "d3", "github api"],
+        "src": "data/experiments/githubrepoviewer/2015-03-11.md"
+    },
+
+    "/experiment/leaflet.geomanager": {
+        "type": "experiment",
+        "date": "2014-10-23T15:49:26.733Z",
+        "title": "Leaflet plugin: geocoding, identify, baselayers, overlays",
+        "tags": ["leaflet", "jquery", "geocoding", "identify", "overlays"],
+        "src": "data/experiments/leaflet.geomanager/2014-10-23.md"
+    },
+
+    "/experiment/akka.pingpong": {
+        "type": "experiment",
+        "date": "2014-01-29T15:49:26.733Z",
+        "title": "Play ping-pong game with remote actor, collect latency statistic and generate plots in R",
+        "tags": ["scala", "akka", "r"],
+        "src": "data/experiments/akka.pingpong/2014-01-29.md"
+    },
+
+    "/cv": {
+        "type": "cv",
+        "date": "2015-03-13T15:49:26.733Z",
+        "title": "Oleg Smetanin CV",
+        "tags": ["CV", "resume"],
+        "src": "data/cv/cv.md"
+    }
+}
