@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://oleg.smetan.in/sitemap.xml
