@@ -14,15 +14,16 @@ Hi, I’m Oleg, an enthusiastic and self-motivated web developer.
 - RequireJS, CommonJS, JavaScript loaders
 
 ## Considerable knowledge of back-end stack:
+- JavaScript in Node.js
+- WebPack, Browseify
+- Jasmine, Mocha
+- Gulp, Grunt
 - Scala
 - PlayFramework 2.0, Spray.io
 - Akka
 - SBT
 - ScalaTest, specs2
-- JavaScript in Node.js
-- WebPack, Browseify
-- Jasmine, Mocha
-- Gulp, Grunt
+
 
 ## Last projects
 
