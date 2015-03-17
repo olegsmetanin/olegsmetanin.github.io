@@ -17,8 +17,9 @@ var gulp = require('gulp'),
     bourbon = require('node-bourbon').includePaths,
     deploypages = require('gulp-gh-pages'),
     webpack = require('gulp-webpack'),
-    serve = require('gulp-serve');//,
-    //lunrindex = require('./gulp-plugins/gulp-lunrindex.js');  
+    serve = require('gulp-serve'),
+    lunrindex = require('./gulp-plugins/gulp-lunrindex.js'),
+    sitemap = require('./gulp-plugins/gulp-sitemap.js');  
 
 var dest = './dest',
     fontName = 'appfont';
@@ -78,6 +79,12 @@ gulp.task('lunrindex', function() {
         .pipe(gulp.dest(dest));
 });
 
+gulp.task('sitemap', function() {
+    return gulp.src('./src/sitemap.json')
+        .pipe(sitemap({url:'http://oleg.smetan.in/#'}))
+        .pipe(gulp.dest(dest));
+});
+
 gulp.task('img', function() {
     return gulp.src(['./src/assets/img/**'])
         .pipe(gulp.dest(dest+ '/assets/img'));
@@ -97,5 +104,5 @@ gulp.task('watch', function() {
 
 gulp.task('serve', serve('dest'));
 
-gulp.task('default', ['styles', 'resources', 'img', 'lunrindex', 'iconfont', 'webpack']);
-gulp.task('dev', ['styles', 'resources', 'img', 'lunrindex', 'iconfont', 'watch', 'webpack-watch', 'serve']);
+gulp.task('default', ['styles', 'resources', 'img', 'lunrindex', 'sitemap', 'iconfont', 'webpack']);
+gulp.task('dev', ['styles', 'resources', 'img', 'lunrindex', 'sitemap', 'iconfont', 'watch', 'webpack-watch', 'serve']);
