@@ -5,6 +5,7 @@ let AppHandler = React.createClass({
   
   statics: {
     async routerWillRunOnClient(state, flux) {
+      ga('send', 'pageview', '#'+state.path);
       let sitemap = flux.getStore('appStore').getSiteMap();
       if (Object.getOwnPropertyNames(sitemap).length === 0) {
         let appActions = flux.getActions('appActions');
