@@ -1,0 +1,41 @@
+.post {
+    padding: 30px;
+    background-color: #fff;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    border: 1px solid #e1e8ed;
+    margin-bottom: -1px;
+    .date {
+        float: right;
+    }
+    .posttext > *:first-child {
+        margin-top: 0 !important;
+    }
+    img {
+        max-width: 100%;
+    }
+    ul {
+        padding-left: 2em;
+    }
+    .tags {
+        margin-left: 10px;
+        .tag {
+            color: #fff;
+            background-color: #337ab7;
+            border-color: #2e6da4;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+            padding: 6px 12px;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+    }
+}

@@ -1,0 +1,55 @@
+.top-header {
+    background-color: #0093D8;
+    display: block;
+    font-size: 50px;
+    font-weight: 600;
+    .top-header-wrap-1 {
+        margin: 0 auto;
+        max-width: 1190px;
+        display: block;
+        .top-header-wrap-2 {
+            padding: 10px;
+            @include clearfix;
+            display: block;
+            position: relative;
+            .top-header-and {
+                color: #fff;
+                float: right;
+                padding-top: 30px;
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+            .top-header-h1 {
+                display: block;
+                background-color: #fff;
+                color: #0093D8;
+                padding-top: 30px;
+                padding-left: 20px;
+                padding-right: 10px;
+                float: right;
+                vertical-align: bottom;
+                margin-right: 0px;
+            }
+            .face {
+                position: absolute;
+                left: 10px;
+                bottom: -110px;
+                width: 200px;
+                height: 200px;
+                display: block;
+                .avatar {
+                    background: #fff;
+                    border: 5px solid #fff;
+                    border-radius: 12px;
+                    box-shadow: 0 1px 1px rgba(136,153,166,0.15);
+                    width: 200px;
+                    height: 200px;
+                }
+                .name {
+                   font-size: 28px; 
+                   line-height: 0;
+                }
+            }
+        }
+    }
+}

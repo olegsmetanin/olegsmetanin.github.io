@@ -1,0 +1,47 @@
+.top-menu {
+    background-color: #fff;
+    border-bottom: 1px solid #e1e8ed;
+    .top-menu-wrap-1 {
+        margin: 0 auto;
+        max-width: 1190px;
+        .top-menu-wrap-2 {
+            margin-left: 220px;
+            @media screen and (max-width: 446px) {
+                margin-left: 0px;
+                padding-top: 160px;
+            }
+            .top-menu-wrap-3 {
+                margin: 0 auto;
+                @include clearfix;
+            }
+        }
+    }
+    ul.menu {
+        list-style: none;
+        padding: 0;
+        display: list-item;
+        li.item {
+            display: inline-block;
+            cursor: default;
+            font-size: 14px;
+            text-decoration: none;
+            text-align: center;
+            padding: 15px 15px 12px;
+            @media screen and (max-width: 463px) {
+                padding: 15px 6px 31px;
+                .text {
+                    display: none;
+                }
+            }
+            a {
+                color: #66757f;
+                &.active {
+                    color: #4183c4;
+                }
+            }
+            .fap {
+                font-size: 40px;
+            }
+        }
+    }
+}

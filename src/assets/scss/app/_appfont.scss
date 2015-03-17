@@ -25,7 +25,22 @@ $app-font-path: "../fonts";
   -moz-osx-font-smoothing: grayscale;
 }
 
-.fap-react                        { &:before { content: "\e199"; } }
-.fap-star                         { &:before { content: "\e200"; } }
-.fap-watch                        { &:before { content: "\e201"; } }
-.fap-fork                         { &:before { content: "\e202"; } }
+.fap-linkedin                        { &:before { content: "\e100"; } }
+.fap-twitter                         { &:before { content: "\e101"; } }
+.fap-github                          { &:before { content: "\e102"; } }
+
+.fap-search4                         { &:before { content: "\e110"; } }
+
+.fap-posts                           { &:before { content: "\e120"; } }
+.fap-experiments                     { &:before { content: "\e121"; } }
+.fap-cv                              { &:before { content: "\e122"; } }
+.fap-posts2                          { &:before { content: "\e123"; } }
+.fap-archive                         { &:before { content: "\e124"; } }
+.fap-tags                            { &:before { content: "\e125"; } }
+.fap-best                            { &:before { content: "\e126"; } }
+
+.fap-react                           { &:before { content: "\e130"; } }
+
+.fap-star                            { &:before { content: "\e140"; } }
+.fap-watch                           { &:before { content: "\e141"; } }
+.fap-fork                            { &:before { content: "\e142"; } }

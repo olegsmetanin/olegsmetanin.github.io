@@ -1,6 +1,9 @@
 'use strict';
 
 var gulp = require('gulp'),
+    babel_register = require("babel/register")({
+        experimental: true
+    }),
     babel = require('gulp-babel'),
     browserify = require('browserify'),
     babelify = require("babelify"),
@@ -12,10 +15,28 @@ var gulp = require('gulp'),
     sketch = require("gulp-sketch"),
     iconfont = require('gulp-iconfont'),
     bourbon = require('node-bourbon').includePaths,
-    deploypages = require('gulp-gh-pages');
+    deploypages = require('gulp-gh-pages'),
+    webpack = require('gulp-webpack'),
+    serve = require('gulp-serve');//,
+    //lunrindex = require('./gulp-plugins/gulp-lunrindex.js');  
 
 var dest = './dest',
     fontName = 'appfont';
+
+gulp.task("webpack", function() {
+    var config = require('./webpack.config.js');
+    return gulp.src('src/assets/js/apps/apps.js')
+      .pipe(webpack(config))
+      .pipe(gulp.dest(dest+'/assets/js/'));
+});
+
+gulp.task("webpack-watch", function() {
+    var config = require('./webpack.config.js');
+    config.watch = true;
+    return gulp.src('src/assets/js/apps/apps.js')
+      .pipe(webpack(config))
+      .pipe(gulp.dest(dest+'/assets/js/'));
+});
 
 gulp.task('styles', function() {
     return gulp.src([
@@ -46,8 +67,14 @@ gulp.task('iconfont', function() {
 
 });
 
-gulp.task('html', function() {
+gulp.task('resources', function() {
     return gulp.src(['./src/**', '!./src/assets/**'])
+        .pipe(gulp.dest(dest));
+});
+
+gulp.task('lunrindex', function() {
+    return gulp.src('./src/sitemap.json')
+        .pipe(lunrindex({filename:'searchindex.json'}))
         .pipe(gulp.dest(dest));
 });
 
@@ -62,11 +89,13 @@ gulp.task('deploypages', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('./src/assets/js/apps/**', ['apps']);
-    gulp.watch('./src/assets/js/lib/**', ['lib']);
     gulp.watch('./src/assets/scss/**', ['styles']);
     gulp.watch('./src/assets/icons/**', ['iconfont']);
-    gulp.watch(['./src/**', '!./src/assets/**'], ['html']);
+    gulp.watch(['./src/**', '!./src/assets/**'], ['resources']);
+    gulp.watch('./src/assets/img/**', ['img']);
 });
 
-gulp.task('default', ['styles', 'html', /* 'img', */ 'watch']);
+gulp.task('serve', serve('dest'));
+
+gulp.task('default', ['styles', 'resources', 'img', 'lunrindex', 'iconfont', 'webpack']);
+gulp.task('dev', ['styles', 'resources', 'img', 'lunrindex', 'iconfont', 'watch', 'webpack-watch', 'serve']);

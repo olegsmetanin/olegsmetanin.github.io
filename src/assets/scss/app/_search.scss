@@ -1,0 +1,27 @@
+.search { 
+    margin-left: 220px;
+    @media screen and (max-width: 638px) {
+        margin-left: 0px;
+    }
+    .search-wrap-1 {
+        width: 60%;
+        margin-left: 20%;
+        margin-bottom: 10px;
+        input {
+            text-align: center;
+            width: 99%;
+            display: block;
+            background-color: #f5f8fa;
+            color: #66757f;
+            outline: 0;
+            border: none;
+            font-size: 30px;
+            border: 0;
+            border-bottom: 1px solid #e1e8ed;
+            padding: 4px;
+            &:focus {
+                background-color: #fff;
+            }
+        }
+    }
+}

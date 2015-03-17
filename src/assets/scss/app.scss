@@ -18,12 +18,24 @@
 
 @import "app/_normalize.scss";
 
-@import "app/_appfont.scss";
+@import "app/_body.scss";
 
-@import "app/_components.scss";
+@import "app/_appfont.scss";
 
 @import "app/_grid.scss";
 
-@import "app/_waves.scss";
-
 @import "app/_spinner.scss";
+
+@import "app/_top-header.scss";
+
+@import "app/_top-menu.scss";
+
+@import "app/_content.scss";
+
+@import "app/_search.scss";
+
+@import "app/_section.scss";
+
+@import "app/_post.scss";
+
+@import "app/_markdown.scss";
