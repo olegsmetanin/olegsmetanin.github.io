@@ -406,6 +406,9 @@ body {
 .fap-mail:before {
   content: "\e103"; }
 
+.fap-instagram:before {
+  content: "\e104"; }
+
 .fap-search4:before {
   content: "\e110"; }
 
