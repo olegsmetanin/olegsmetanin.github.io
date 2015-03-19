@@ -369,6 +369,7 @@ a {
   float: left !important; }
 
 a {
+  display: block;
   color: #4183c4; }
 
 body {
@@ -401,6 +402,9 @@ body {
 
 .fap-github:before {
   content: "\e102"; }
+
+.fap-mail:before {
+  content: "\e103"; }
 
 .fap-search4:before {
   content: "\e110"; }
@@ -568,7 +572,7 @@ body {
       text-decoration: none;
       text-align: center;
       padding: 15px 15px 12px; }
-      @media screen and (max-width: 463px) {
+      @media screen and (max-width: 532px) {
         .top-menu ul.menu li.item {
           padding: 15px 6px 31px; }
           .top-menu ul.menu li.item .text {
