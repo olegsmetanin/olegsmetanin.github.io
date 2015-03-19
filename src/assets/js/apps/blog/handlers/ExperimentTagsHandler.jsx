@@ -5,7 +5,7 @@ import ItemList from './../components/ItemList.jsx';
 import DocumentTitle from 'react-document-title';
 import Item from './../components/Item.jsx';
 import InfiniteTracker from './../components/InfiniteTracker.jsx';
-
+import Spinner from './../components/Spinner.jsx';
 import './../utils/Array.js'; 
 import marked from 'marked';
 import moment from 'moment';
@@ -43,11 +43,11 @@ let ExperimentTagsHandler = React.createClass({
 
   render() {
     let items = this.state.items;
+    var jsx;
     if (items.store_miss) {
-        return <div>loading</div>
+        jsx = <Spinner/>
     } else {
-
-       return <div key="0" className="post">
+       jsx = <div key="0" className="post">
               <div className="tags">
               {items.map((tag,i) => {
                 return <Link key={tag+i} className="tag" to="search" params={{query: tag}}>
@@ -57,6 +57,7 @@ let ExperimentTagsHandler = React.createClass({
               </div>
        </div> 
     }
+    return jsx;
   }
 });
 

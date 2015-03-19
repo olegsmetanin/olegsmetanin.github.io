@@ -6,6 +6,7 @@ import DocumentTitle from 'react-document-title';
 import './../utils/Array.js'; 
 import marked from 'marked';
 import { debounce } from './../utils/Timer.js';  
+import Spinner from './../components/Spinner.jsx';
 
 let ExperimentsHandler = React.createClass({
   

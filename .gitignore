@@ -2,6 +2,7 @@
 /node_modules/
 npm-debug.log
 /tmp/
+/.publish/
 /dest/*
 /dest/assets/fonts/*
 !/dest/assets/fonts/appfont.*

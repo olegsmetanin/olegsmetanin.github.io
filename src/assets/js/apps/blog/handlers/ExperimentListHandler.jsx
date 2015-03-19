@@ -5,6 +5,7 @@ import ItemList from './../components/ItemList.jsx';
 import DocumentTitle from 'react-document-title';
 import Item from './../components/Item.jsx';
 import InfiniteTracker from './../components/InfiniteTracker.jsx';
+import Spinner from './../components/Spinner.jsx';
 
 import './../utils/Array.js'; 
 import marked from 'marked';
@@ -54,10 +55,9 @@ let ExperimentListHandler = React.createClass({
   render() {
     let posts = this.state.posts;
     if (posts.store_miss) {
-        return <div>loading</div>
+        return <Spinner/>
     } else {
        
-
       var noMore = this.state.noMore;
 
 
