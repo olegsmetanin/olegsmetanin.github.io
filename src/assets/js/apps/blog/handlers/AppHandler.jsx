@@ -63,6 +63,12 @@ let AppHandler = React.createClass({
                 </ul>
                 <ul className="menu pull-right">
                   <li className="item">
+                   <a href="mailto:oleg@smetan.in">
+                    <i className="fap fap-mail"></i>
+                    <div className="text">Mail</div>
+                   </a>
+                  </li> 
+                  <li className="item">
                    <a href="https://github.com/olegsmetanin" target="_blank">
                     <i className="fap fap-github"></i>
                     <div className="text">Github</div>
