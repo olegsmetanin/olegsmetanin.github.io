@@ -9,6 +9,7 @@ import ExperimentArchiveHandler from './handlers/ExperimentArchiveHandler.jsx';
 import ExperimentTagsHandler from './handlers/ExperimentTagsHandler.jsx';
 import ExperimentSearchHandler from './handlers/ExperimentSearchHandler.jsx';
 import CVHandler from './handlers/CVHandler.jsx';
+import InstagramHandler from './handlers/InstagramHandler.jsx';
 
 let routes = (
   <Route handler={AppHandler}>
@@ -21,6 +22,7 @@ let routes = (
     	<Route name="search" path="/search/?:query?" handler={ExperimentSearchHandler}/>
     </Route>
     <Route name="cv" path="/cv" handler={CVHandler}/>
+    <Route name="instagram" path="/instagram" handler={InstagramHandler}/>
   </Route>
 );
 

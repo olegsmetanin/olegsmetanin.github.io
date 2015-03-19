@@ -11,11 +11,15 @@ class AppStore extends Store {
     this.register(appActionIds.getSiteMap, this.handleGetSiteMap);
     this.register(appActionIds.getSearchIndex, this.handleGetSearchIndex);
     this.register(appActionIds.getResource, this.handleGetResource);
+    this.register(appActionIds.getInstagrams, this.handleGetInstagrams);
 
     this._siteMap = {};
     this._ResourcesLRU = LRU(20);
     this._ExperimentsSortedArray = [];
     this._searchIndex = {};
+
+    this._InstagramLRU = LRU(20);
+
     this.state = {};
 
   }
@@ -89,6 +93,24 @@ class AppStore extends Store {
     var res = this._searchIndex.search(query);
     return res.map(el => this._siteMap[el.ref]);
   }
+
+
+  getInstagrams(userid) {
+    var res;
+    if (this._InstagramLRU.has(userid)) {
+      res = this._InstagramLRU.get(userid);
+      res.store_miss = false;
+    } else {
+      res = {items:[], store_miss: true}
+    }
+    return res;
+  }
+
+  handleGetInstagrams(instagrams) {
+    this._InstagramLRU.set(instagrams.userid, instagrams);
+    this.emit('change');
+  }
+
 
 }
 

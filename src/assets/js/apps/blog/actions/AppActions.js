@@ -32,6 +32,16 @@ class AppActions extends Actions {
       });
   }
 
+  async getInstagrams(insta) { 
+      return await httpRequest
+      .get(`https://api.instagram.com/v1/users/${insta.userid}/media/recent/?client_id=${insta.clientid}`)
+      .jsonp()
+      .exec()
+      .then(val => {
+        return {userid: insta.userid, data: val.data}
+      });
+  }
+
 }
 
 export default AppActions;

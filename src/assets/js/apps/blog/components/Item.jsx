@@ -4,6 +4,7 @@ import React from 'react';
 import { Route, RouteHandler, DefaultRoute, State, Link, Redirect } from 'react-router'; 
 import marked from 'marked';
 import moment from 'moment';
+import Spinner from './../components/Spinner.jsx';
 
 let Item = React.createClass({
   contextTypes: {
@@ -42,13 +43,7 @@ let Item = React.createClass({
       let date = this.state.date ? moment(this.state.date).fromNow() : '';
       var jsx;
       if (this.state.store_miss) {
-        jsx = <div className="spinner">
-            <div className="rect1 blue"></div>
-            <div className="rect2 blue"></div>
-            <div className="rect3 blue"></div>
-            <div className="rect4 blue"></div>
-            <div className="rect5 blue"></div>
-          </div>
+        jsx = <Spinner/>
       } else {
         jsx = <div className="post">
           <div className="date">{date}</div>

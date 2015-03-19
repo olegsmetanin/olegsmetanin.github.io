@@ -60,6 +60,12 @@ let AppHandler = React.createClass({
                     <div className="text">CV</div>
                    </Link>
                   </li>
+                  <li className="item">
+                    <Link to="instagram" activeClassName="active">
+                    <i className="fap fap-instagram"></i>
+                    <div className="text">Instagram</div>
+                   </Link>
+                  </li>
                 </ul>
                 <ul className="menu pull-right">
                   <li className="item">
