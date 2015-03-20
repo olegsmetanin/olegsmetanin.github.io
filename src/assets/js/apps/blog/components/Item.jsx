@@ -19,6 +19,16 @@ let Item = React.createClass({
   componentDidMount () {
     this.AppStore.addListener('change', this.onAppStoreChange);
     this.getResource(this.props.link);
+
+    let that = this;
+    setTimeout(function () {
+      if (typeof(FB) !== 'undefined') {
+        var el = that.getDOMNode().childNodes[2];
+        React.unmountComponentAtNode(el);
+        FB.XFBML.parse(el);
+      }
+    },300);      
+
   },
 
   componentWillUnmount() {
@@ -39,15 +49,21 @@ let Item = React.createClass({
 
 
     render () {
+      // 
       let txt = this.state.text ? marked(this.state.text): 'loading';
       let date = this.state.date ? moment(this.state.date).fromNow() : '';
       var jsx;
       if (this.state.store_miss) {
         jsx = <Spinner/>
       } else {
+        let url = 'http://oleg.smetan.in/#'+this.props.link;
+        // 
         jsx = <div className="post">
           <div className="date">{date}</div>
           <div className="markdown" dangerouslySetInnerHTML={{__html: txt}}/>
+          <div>
+            <div className="fb-comments" data-href={url} data-width="100%" data-numposts="5" data-colorscheme="light"></div>
+          </div>
         </div>
 
       }
