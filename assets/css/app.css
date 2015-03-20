@@ -454,6 +454,12 @@ body {
 .fap-fork:before {
   content: "\e142"; }
 
+.fap-heart:before {
+  content: "\e143"; }
+
+.fap-comment:before {
+  content: "\e144"; }
+
 .spinner {
   margin: 100px auto;
   width: 70px;
@@ -660,8 +666,6 @@ section ul.menu {
   line-height: 1.6;
   border: 1px solid #e1e8ed;
   margin-bottom: -1px; }
-  .post .date {
-    float: right; }
   .post .posttext > *:first-child {
     margin-top: 0 !important; }
   .post img {
@@ -685,13 +689,35 @@ section ul.menu {
       border: 1px solid transparent;
       border-radius: 4px;
       margin-right: 5px; }
+  .post.itemlist .date {
+    float: right; }
 
 .markdown .gray {
   color: #aaa; }
+.markdown .date {
+  float: right; }
 
 .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
   min-width: 100% !important;
   width: 100% !important; }
+
+.instagram img {
+  display: block;
+  margin: 0 auto; }
+.instagram .date-wrap::after {
+  clear: both;
+  content: "";
+  display: table; }
+.instagram .date-wrap .date {
+  float: right; }
+.instagram .notes {
+  text-align: center; }
+.instagram .caption {
+  font-size: 30px; }
+.instagram .likes, .instagram .comments {
+  padding-right: 10px;
+  color: #66757f;
+  font-size: 24px; }
 
 .audio {
   cursor: pointer; }
