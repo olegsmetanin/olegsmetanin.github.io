@@ -2331,35 +2331,18 @@ webpackJsonp([0],[
 	
 	var React = _interopRequire(__webpack_require__(3));
 	
-	// function togglePause(myAudio) {
-	//      if (myAudio.paused && myAudio.currentTime > 0 && !myAudio.ended) {
-	//          myAudio.play();
-	//      } else {
-	//          myAudio.pause();
-	//      }
-	// }
-	
 	var Audio = React.createClass({
 	  displayName: "Audio",
 	
 	  getInitialState: function getInitialState() {
 	    return {
-	      playing: false,
-	      canPlay: false
+	      playing: false
 	    };
 	  },
 	
 	  componentDidMount: function componentDidMount() {
 	    this._player = this.getDOMNode().firstChild;
-	    this._player.addEventListener("canplay", this.audioReady);
-	  },
-	
-	  componentWillUnmount: function componentWillUnmount() {
-	    this._player.removeEventListener("canplay", this.audioReady);
-	  },
-	
-	  audioReady: function audioReady() {
-	    this.setState({ canPlay: true });
+	    this._player.load();
 	  },
 	
 	  handleClick: function handleClick() {
@@ -2384,7 +2367,7 @@ webpackJsonp([0],[
 	      React.createElement(
 	        "div",
 	        { onClick: this.handleClick },
-	        React.createElement("i", { className: "fap fap-" + (this.state.canPlay ? this.state.playing ? "pause" : "play" : "wait") }),
+	        React.createElement("i", { className: "fap fap-" + (this.state.playing ? "pause" : "play") }),
 	        React.createElement(
 	          "div",
 	          { className: "text" },
