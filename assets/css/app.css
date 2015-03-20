@@ -412,6 +412,12 @@ body {
 .fap-search4:before {
   content: "\e110"; }
 
+.fap-play:before {
+  content: "\e111"; }
+
+.fap-pause:before {
+  content: "\e112"; }
+
 .fap-posts:before {
   content: "\e120"; }
 
@@ -575,7 +581,7 @@ body {
       text-decoration: none;
       text-align: center;
       padding: 15px 15px 12px; }
-      @media screen and (max-width: 532px) {
+      @media screen and (max-width: 612px) {
         .top-menu ul.menu li.item {
           padding: 15px 6px 31px; }
           .top-menu ul.menu li.item .text {
