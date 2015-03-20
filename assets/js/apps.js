@@ -2449,7 +2449,7 @@ webpackJsonp([0],[
 	  },
 	
 	  render: function render() {
-	    console.log();
+	    // <div className="fb-comments" data-href={url} data-width="100%" data-numposts="5" data-colorscheme="light"></div>
 	    var txt = this.state.text ? marked(this.state.text) : "loading";
 	    var date = this.state.date ? moment(this.state.date).fromNow() : "";
 	    var jsx;
@@ -2466,8 +2466,7 @@ webpackJsonp([0],[
 	          { className: "date" },
 	          date
 	        ),
-	        React.createElement("div", { className: "markdown", dangerouslySetInnerHTML: { __html: txt } }),
-	        React.createElement("div", { className: "fb-comments", "data-href": url, "data-width": "100%", "data-numposts": "5", "data-colorscheme": "light" })
+	        React.createElement("div", { className: "markdown", dangerouslySetInnerHTML: { __html: txt } })
 	      );
 	    }
 	    return jsx;
