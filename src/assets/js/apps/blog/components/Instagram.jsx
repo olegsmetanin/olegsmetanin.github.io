@@ -39,8 +39,36 @@ let Instagram = React.createClass({
       let data = this.state.data;
       jsx = <div>
           {data.map((item,i) => {
-            return <div key={i} className="post">
-              <img src={item.images.standard_resolution.url}/>
+            let date = moment.unix(item.caption.created_time).fromNow();//moment(item.caption.created_time*1000);
+            return <div key={i} className="post instagram">
+              <div className="date-wrap">
+                <span className="date">{date}</span>
+              </div>
+              <div className="notes">
+              <span className="caption">
+                {item.caption.text}
+              </span>
+              </div>
+
+              <a href={item.link} className="imgwrap" target="_blank"> 
+                <img src={item.images.standard_resolution.url}/>
+              </a>
+
+              <div className="notes">
+                <span className="likes"> 
+                  <i className="fap fap-heart"></i>
+                  {item.likes.count}
+                </span>
+                <span className="comments">
+                  <i className="fap fap-comment"></i>
+                  {item.comments.count}
+                </span>
+              </div>   
+
+              <div>
+
+
+              </div>
             </div>         
           })}
       </div>

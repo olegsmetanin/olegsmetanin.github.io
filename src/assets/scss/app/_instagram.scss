@@ -1,0 +1,23 @@
+.instagram {
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+    .date-wrap {
+        @include clearfix;
+        .date {
+            float: right;
+        }
+    }
+    .notes {
+        text-align: center;
+    }
+    .caption {
+        font-size: 30px;
+    }
+    .likes, .comments {
+        padding-right: 10px;
+        color: #66757f;
+        font-size: 24px;
+    }
+}

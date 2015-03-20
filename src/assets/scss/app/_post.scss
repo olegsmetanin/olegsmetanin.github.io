@@ -7,9 +7,7 @@
     line-height: 1.6;
     border: 1px solid #e1e8ed;
     margin-bottom: -1px;
-    .date {
-        float: right;
-    }
+
     .posttext > *:first-child {
         margin-top: 0 !important;
     }
@@ -36,6 +34,12 @@
             border: 1px solid transparent;
             border-radius: 4px;
             margin-right: 5px;
+        }
+    }
+
+    &.itemlist {
+        .date {
+            float:right;
         }
     }
 }

@@ -58,7 +58,7 @@ let Item = React.createClass({
       } else {
         let url = 'http://oleg.smetan.in/#'+this.props.link;
         // 
-        jsx = <div className="post">
+        jsx = <div className="post markdown">
           <div className="date">{date}</div>
           <div className="markdown" dangerouslySetInnerHTML={{__html: txt}}/>
           <div>

@@ -19,7 +19,7 @@ let ItemList = React.createClass({
               let title = it.title ? it.title : '';
               let tags = it.tags ? it.tags : '';
               let link = it.link.split('/').pop();
-              return <div key={i} className="post">
+              return <div key={i} className="post itemlist">
                 <div className="date">{date}</div>
                 
                 <Link to="experiment" params={{link: link}}>
