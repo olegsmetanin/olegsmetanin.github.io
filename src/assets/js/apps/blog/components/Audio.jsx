@@ -2,24 +2,17 @@
 
 import React from 'react';
 
-// function togglePause(myAudio) {
-//      if (myAudio.paused && myAudio.currentTime > 0 && !myAudio.ended) {
-//          myAudio.play();
-//      } else {
-//          myAudio.pause();
-//      }
-// }
-
 let Audio = React.createClass({
 
   getInitialState() {   
     return {
-        playing:true
+        playing: false
     }
   },
   
   componentDidMount () {
     this._player = this.getDOMNode().firstChild;
+    this._player.load();
   },
 
   handleClick() { 
@@ -33,13 +26,13 @@ let Audio = React.createClass({
   },  
 
   render() {
-    return <div>
-      <audio autoPlay loop>
+    return <div className="audio">
+      <audio loop>
         <source src={this.props.src} type="audio/mpeg"/>
       </audio>
       <div onClick={this.handleClick}>
-        <i className={'fap fap-'+ (this.state.playing ? 'play': 'pause')}></i>
-        <div className="text">Now playing</div>
+        <i className={'fap fap-' + (this.state.playing ? 'pause': 'play')}></i>
+        <div className="text">Music</div>
       </div>
     </div>;
   }
