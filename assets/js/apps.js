@@ -2374,7 +2374,7 @@ webpackJsonp([0],[
 	      React.createElement(
 	        "div",
 	        { onClick: this.handleClick },
-	        React.createElement("i", { className: "fap fap-" + (this.state.playing ? "play" : "pause") }),
+	        React.createElement("i", { className: "fap fap-" + (this.state.playing ? "pause" : "play") }),
 	        React.createElement(
 	          "div",
 	          { className: "text" },
