@@ -1346,9 +1346,9 @@ webpackJsonp([0],[
 	
 	        case 14:
 	          context$2$0.prev = 14;
-	          context$2$0.t1 = context$2$0["catch"](3);
+	          context$2$0.t7 = context$2$0["catch"](3);
 	          _didIteratorError = true;
-	          _iteratorError = context$2$0.t1;
+	          _iteratorError = context$2$0.t7;
 	
 	        case 18:
 	          context$2$0.prev = 18;
@@ -2429,6 +2429,7 @@ webpackJsonp([0],[
 	  componentDidMount: function componentDidMount() {
 	    this.AppStore.addListener("change", this.onAppStoreChange);
 	    this.getResource(this.props.link);
+	    //FB.XFBML.parse();
 	  },
 	
 	  componentWillUnmount: function componentWillUnmount() {
@@ -2448,12 +2449,15 @@ webpackJsonp([0],[
 	  },
 	
 	  render: function render() {
+	    console.log();
 	    var txt = this.state.text ? marked(this.state.text) : "loading";
 	    var date = this.state.date ? moment(this.state.date).fromNow() : "";
 	    var jsx;
 	    if (this.state.store_miss) {
 	      jsx = React.createElement(Spinner, null);
 	    } else {
+	      var url = "http://oleg.smetan.in/#" + this.props.link;
+	      //
 	      jsx = React.createElement(
 	        "div",
 	        { className: "post" },
@@ -2462,7 +2466,8 @@ webpackJsonp([0],[
 	          { className: "date" },
 	          date
 	        ),
-	        React.createElement("div", { className: "markdown", dangerouslySetInnerHTML: { __html: txt } })
+	        React.createElement("div", { className: "markdown", dangerouslySetInnerHTML: { __html: txt } }),
+	        React.createElement("div", { className: "fb-comments", "data-href": url, "data-width": "100%", "data-numposts": "5", "data-colorscheme": "light" })
 	      );
 	    }
 	    return jsx;
