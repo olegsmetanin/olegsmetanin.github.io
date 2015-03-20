@@ -369,7 +369,6 @@ a {
   float: left !important; }
 
 a {
-  display: block;
   color: #4183c4; }
 
 body {
@@ -596,6 +595,7 @@ body {
           .top-menu ul.menu li.item .text {
             display: none; } }
       .top-menu ul.menu li.item a {
+        display: block;
         color: #66757f; }
         .top-menu ul.menu li.item a.active {
           color: #4183c4; }
