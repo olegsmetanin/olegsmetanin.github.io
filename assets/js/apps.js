@@ -2344,12 +2344,22 @@ webpackJsonp([0],[
 	
 	  getInitialState: function getInitialState() {
 	    return {
-	      playing: true
+	      playing: false,
+	      canPlay: false
 	    };
 	  },
 	
 	  componentDidMount: function componentDidMount() {
 	    this._player = this.getDOMNode().firstChild;
+	    this._player.addEventListener("canplay", this.audioReady);
+	  },
+	
+	  componentWillUnmount: function componentWillUnmount() {
+	    this._player.removeEventListener("canplay", this.audioReady);
+	  },
+	
+	  audioReady: function audioReady() {
+	    this.setState({ canPlay: true });
 	  },
 	
 	  handleClick: function handleClick() {
@@ -2368,17 +2378,17 @@ webpackJsonp([0],[
 	      null,
 	      React.createElement(
 	        "audio",
-	        { autoPlay: true, loop: true },
+	        { loop: true },
 	        React.createElement("source", { src: this.props.src, type: "audio/mpeg" })
 	      ),
 	      React.createElement(
 	        "div",
 	        { onClick: this.handleClick },
-	        React.createElement("i", { className: "fap fap-" + (this.state.playing ? "pause" : "play") }),
+	        React.createElement("i", { className: "fap fap-" + (this.state.canPlay ? this.state.playing ? "pause" : "play" : "wait") }),
 	        React.createElement(
 	          "div",
 	          { className: "text" },
-	          "Now playing"
+	          "Music"
 	        )
 	      )
 	    );
