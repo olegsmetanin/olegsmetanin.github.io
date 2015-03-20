@@ -32,6 +32,8 @@ $app-font-path: "../fonts";
 .fap-instagram                       { &:before { content: "\e104"; } }
 
 .fap-search4                         { &:before { content: "\e110"; } }
+.fap-play                            { &:before { content: "\e111"; } }
+.fap-pause                           { &:before { content: "\e112"; } }
 
 .fap-posts                           { &:before { content: "\e120"; } }
 .fap-experiments                     { &:before { content: "\e121"; } }

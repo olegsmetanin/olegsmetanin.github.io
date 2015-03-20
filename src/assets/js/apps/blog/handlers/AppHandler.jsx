@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, RouteHandler, DefaultRoute, State, Link, Redirect } from 'react-router'; 
+import Audio from './../components/Audio.jsx';
 
 let AppHandler = React.createClass({
   
@@ -65,6 +66,9 @@ let AppHandler = React.createClass({
                     <i className="fap fap-instagram"></i>
                     <div className="text">Instagram</div>
                    </Link>
+                  </li>
+                  <li className="item">
+                    <Audio src="http://cs1-15v4.vk-cdn.net/p5/c04cbeae3a7b27.mp3?extra=sRQZPmq4UvrFF8urqBOSHbkvP00QRdsv-a-RGl670XSukmfoo7HLWGDG1a5_cs1JdxSvdUIT4urixNeW6Q4mdvJGJAoCq1dDpg"/>
                   </li>
                 </ul>
                 <ul className="menu pull-right">
