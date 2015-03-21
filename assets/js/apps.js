@@ -1016,6 +1016,12 @@ webpackJsonp([0],[
 	
 	var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
 	
+	var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _inherits = function (subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+	
 	var React = _interopRequire(__webpack_require__(3));
 	
 	var _reactRouter = __webpack_require__(9);
@@ -1029,213 +1035,225 @@ webpackJsonp([0],[
 	
 	var Audio = _interopRequire(__webpack_require__(232));
 	
-	var AppHandler = React.createClass({
-	  displayName: "AppHandler",
+	var AppHandler = (function (_React$Component) {
+	  function AppHandler() {
+	    _classCallCheck(this, AppHandler);
 	
-	  statics: {
-	    routerWillRunOnClient: function routerWillRunOnClient(state, flux) {
-	      var sitemap, appActions;
-	      return regeneratorRuntime.async(function routerWillRunOnClient$(context$1$0) {
-	        while (1) switch (context$1$0.prev = context$1$0.next) {
-	          case 0:
-	            ga("send", "pageview", "#" + state.path);
-	            sitemap = flux.getStore("appStore").getSiteMap();
-	
-	            if (!(Object.getOwnPropertyNames(sitemap).length === 0)) {
-	              context$1$0.next = 8;
-	              break;
-	            }
-	
-	            appActions = flux.getActions("appActions");
-	            context$1$0.next = 6;
-	            return appActions.getSiteMap();
-	
-	          case 6:
-	            context$1$0.next = 8;
-	            return appActions.getSearchIndex();
-	
-	          case 8:
-	          case "end":
-	            return context$1$0.stop();
-	        }
-	      }, null, this);
+	    if (_React$Component != null) {
+	      _React$Component.apply(this, arguments);
 	    }
-	  },
+	  }
 	
-	  contextTypes: {
-	    flux: React.PropTypes.object.isRequired },
+	  _inherits(AppHandler, _React$Component);
 	
-	  render: function render() {
-	    return React.createElement(
-	      "div",
-	      null,
-	      React.createElement(
-	        "div",
-	        { className: "top-header" },
-	        React.createElement(
+	  _createClass(AppHandler, {
+	    render: {
+	      value: function render() {
+	        return React.createElement(
 	          "div",
-	          { className: "top-header-wrap-1" },
+	          null,
 	          React.createElement(
 	            "div",
-	            { className: "top-header-wrap-2" },
+	            { className: "top-header" },
 	            React.createElement(
 	              "div",
-	              { className: "top-header-h1 z-depth-1" },
-	              "Scala"
-	            ),
-	            React.createElement(
-	              "div",
-	              { className: "top-header-and" },
-	              "&"
-	            ),
-	            React.createElement(
-	              "div",
-	              { className: "top-header-h1 z-depth-1" },
-	              "JS"
-	            ),
-	            React.createElement(
-	              "a",
-	              { className: "face", href: "/" },
-	              React.createElement("img", { className: "avatar", src: "assets/img/avatar.jpg" }),
+	              { className: "top-header-wrap-1" },
 	              React.createElement(
 	                "div",
-	                { className: "name" },
-	                "Oleg Smetanin"
+	                { className: "top-header-wrap-2" },
+	                React.createElement(
+	                  "div",
+	                  { className: "top-header-h1 z-depth-1" },
+	                  "Scala"
+	                ),
+	                React.createElement(
+	                  "div",
+	                  { className: "top-header-and" },
+	                  "&"
+	                ),
+	                React.createElement(
+	                  "div",
+	                  { className: "top-header-h1 z-depth-1" },
+	                  "JS"
+	                ),
+	                React.createElement(
+	                  "a",
+	                  { className: "face", href: "/" },
+	                  React.createElement("img", { className: "avatar", src: "assets/img/avatar.jpg" }),
+	                  React.createElement(
+	                    "div",
+	                    { className: "name" },
+	                    "Oleg Smetanin"
+	                  )
+	                )
 	              )
 	            )
-	          )
-	        )
-	      ),
-	      React.createElement(
-	        "div",
-	        { className: "top-menu" },
-	        React.createElement(
-	          "div",
-	          { className: "top-menu-wrap-1" },
+	          ),
 	          React.createElement(
 	            "div",
-	            { className: "top-menu-wrap-2" },
+	            { className: "top-menu" },
 	            React.createElement(
 	              "div",
-	              { className: "top-menu-wrap-3" },
+	              { className: "top-menu-wrap-1" },
 	              React.createElement(
-	                "ul",
-	                { className: "menu pull-left" },
+	                "div",
+	                { className: "top-menu-wrap-2" },
 	                React.createElement(
-	                  "li",
-	                  { className: "item" },
+	                  "div",
+	                  { className: "top-menu-wrap-3" },
 	                  React.createElement(
-	                    Link,
-	                    { to: "experiments", activeClassName: "active" },
-	                    React.createElement("i", { className: "fap fap-experiments" }),
+	                    "ul",
+	                    { className: "menu pull-left" },
 	                    React.createElement(
-	                      "div",
-	                      { className: "text" },
-	                      "Experiments"
+	                      "li",
+	                      { className: "item" },
+	                      React.createElement(
+	                        Link,
+	                        { to: "experiments", activeClassName: "active" },
+	                        React.createElement("i", { className: "fap fap-experiments" }),
+	                        React.createElement(
+	                          "div",
+	                          { className: "text" },
+	                          "Experiments"
+	                        )
+	                      )
+	                    ),
+	                    React.createElement(
+	                      "li",
+	                      { className: "item" },
+	                      React.createElement(
+	                        Link,
+	                        { to: "cv", activeClassName: "active" },
+	                        React.createElement("i", { className: "fap fap-cv" }),
+	                        React.createElement(
+	                          "div",
+	                          { className: "text" },
+	                          "CV"
+	                        )
+	                      )
+	                    ),
+	                    React.createElement(
+	                      "li",
+	                      { className: "item" },
+	                      React.createElement(
+	                        Link,
+	                        { to: "instagram", activeClassName: "active" },
+	                        React.createElement("i", { className: "fap fap-instagram" }),
+	                        React.createElement(
+	                          "div",
+	                          { className: "text" },
+	                          "Instagram"
+	                        )
+	                      )
+	                    ),
+	                    React.createElement(
+	                      "li",
+	                      { className: "item" },
+	                      React.createElement(Audio, { src: "http://playmusics.net/get-audio/aHR0cDovL2NzMTI0OXY0LnZrLm1lL3U1OTc3ODE3L2F1ZGlvcy9hN2E2YWRmYmZmNDMubXAzP2V4dHJhPXFsd3JfUnpsaU5nX0NieEZSZlM4NklVS1dWQXRkaTlzRXNNSEltUWc3U2FiTHU4M0JOQVRhYW1hLTRJbXlCSGtkaHpJNGpLR0RaTlJBOW1SdmpDVWZWTW5yODNEWTlDa3h3?filename=Secret+Garden-Lotus+%28%D0%A6%D0%B2%D0%B5%D1%82%D0%B5%D0%BD%D0%B8%D0%B5+%D1%81%D0%B0%D0%BA%D1%83%D1%80%D1%8B%29.mp3" })
 	                    )
-	                  )
-	                ),
-	                React.createElement(
-	                  "li",
-	                  { className: "item" },
+	                  ),
 	                  React.createElement(
-	                    Link,
-	                    { to: "cv", activeClassName: "active" },
-	                    React.createElement("i", { className: "fap fap-cv" }),
+	                    "ul",
+	                    { className: "menu pull-right" },
 	                    React.createElement(
-	                      "div",
-	                      { className: "text" },
-	                      "CV"
-	                    )
-	                  )
-	                ),
-	                React.createElement(
-	                  "li",
-	                  { className: "item" },
-	                  React.createElement(
-	                    Link,
-	                    { to: "instagram", activeClassName: "active" },
-	                    React.createElement("i", { className: "fap fap-instagram" }),
+	                      "li",
+	                      { className: "item" },
+	                      React.createElement(
+	                        "a",
+	                        { href: "mailto:oleg@smetan.in" },
+	                        React.createElement("i", { className: "fap fap-mail" }),
+	                        React.createElement(
+	                          "div",
+	                          { className: "text" },
+	                          "Mail"
+	                        )
+	                      )
+	                    ),
 	                    React.createElement(
-	                      "div",
-	                      { className: "text" },
-	                      "Instagram"
-	                    )
-	                  )
-	                ),
-	                React.createElement(
-	                  "li",
-	                  { className: "item" },
-	                  React.createElement(Audio, { src: "http://playmusics.net/get-audio/aHR0cDovL2NzMTI0OXY0LnZrLm1lL3U1OTc3ODE3L2F1ZGlvcy9hN2E2YWRmYmZmNDMubXAzP2V4dHJhPXFsd3JfUnpsaU5nX0NieEZSZlM4NklVS1dWQXRkaTlzRXNNSEltUWc3U2FiTHU4M0JOQVRhYW1hLTRJbXlCSGtkaHpJNGpLR0RaTlJBOW1SdmpDVWZWTW5yODNEWTlDa3h3?filename=Secret+Garden-Lotus+%28%D0%A6%D0%B2%D0%B5%D1%82%D0%B5%D0%BD%D0%B8%D0%B5+%D1%81%D0%B0%D0%BA%D1%83%D1%80%D1%8B%29.mp3" })
-	                )
-	              ),
-	              React.createElement(
-	                "ul",
-	                { className: "menu pull-right" },
-	                React.createElement(
-	                  "li",
-	                  { className: "item" },
-	                  React.createElement(
-	                    "a",
-	                    { href: "mailto:oleg@smetan.in" },
-	                    React.createElement("i", { className: "fap fap-mail" }),
+	                      "li",
+	                      { className: "item" },
+	                      React.createElement(
+	                        "a",
+	                        { href: "https://github.com/olegsmetanin", target: "_blank" },
+	                        React.createElement("i", { className: "fap fap-github" }),
+	                        React.createElement(
+	                          "div",
+	                          { className: "text" },
+	                          "Github"
+	                        )
+	                      )
+	                    ),
 	                    React.createElement(
-	                      "div",
-	                      { className: "text" },
-	                      "Mail"
-	                    )
-	                  )
-	                ),
-	                React.createElement(
-	                  "li",
-	                  { className: "item" },
-	                  React.createElement(
-	                    "a",
-	                    { href: "https://github.com/olegsmetanin", target: "_blank" },
-	                    React.createElement("i", { className: "fap fap-github" }),
+	                      "li",
+	                      { className: "item" },
+	                      React.createElement(
+	                        "a",
+	                        { href: "https://www.linkedin.com/pub/oleg-smetanin/81/82/618", target: "_blank" },
+	                        React.createElement("i", { className: "fap fap-linkedin" }),
+	                        React.createElement(
+	                          "div",
+	                          { className: "text" },
+	                          "LinkedIn"
+	                        )
+	                      )
+	                    ),
 	                    React.createElement(
-	                      "div",
-	                      { className: "text" },
-	                      "Github"
-	                    )
-	                  )
-	                ),
-	                React.createElement(
-	                  "li",
-	                  { className: "item" },
-	                  React.createElement(
-	                    "a",
-	                    { href: "https://www.linkedin.com/pub/oleg-smetanin/81/82/618", target: "_blank" },
-	                    React.createElement("i", { className: "fap fap-linkedin" }),
-	                    React.createElement(
-	                      "div",
-	                      { className: "text" },
-	                      "LinkedIn"
-	                    )
-	                  )
-	                ),
-	                React.createElement(
-	                  "li",
-	                  { className: "item" },
-	                  React.createElement(
-	                    "a",
-	                    { href: "https://twitter.com/oleg_smetanin", target: "_blank" },
-	                    React.createElement("i", { className: "fap fap-twitter" }),
-	                    React.createElement(
-	                      "div",
-	                      { className: "text" },
-	                      "Twitter"
+	                      "li",
+	                      { className: "item" },
+	                      React.createElement(
+	                        "a",
+	                        { href: "https://twitter.com/oleg_smetanin", target: "_blank" },
+	                        React.createElement("i", { className: "fap fap-twitter" }),
+	                        React.createElement(
+	                          "div",
+	                          { className: "text" },
+	                          "Twitter"
+	                        )
+	                      )
 	                    )
 	                  )
 	                )
 	              )
 	            )
-	          )
-	        )
-	      ),
-	      React.createElement(RouteHandler, null)
-	    );
-	  } });
+	          ),
+	          React.createElement(RouteHandler, null)
+	        );
+	      }
+	    }
+	  }, {
+	    routerWillRunOnClient: {
+	      value: function routerWillRunOnClient(state, flux) {
+	        var sitemap, appActions;
+	        return regeneratorRuntime.async(function routerWillRunOnClient$(context$2$0) {
+	          while (1) switch (context$2$0.prev = context$2$0.next) {
+	            case 0:
+	              ga("send", "pageview", "#" + state.path);
+	              sitemap = flux.getStore("appStore").getSiteMap();
+	
+	              if (!(Object.getOwnPropertyNames(sitemap).length === 0)) {
+	                context$2$0.next = 8;
+	                break;
+	              }
+	
+	              appActions = flux.getActions("appActions");
+	              context$2$0.next = 6;
+	              return appActions.getSiteMap();
+	
+	            case 6:
+	              context$2$0.next = 8;
+	              return appActions.getSearchIndex();
+	
+	            case 8:
+	            case "end":
+	              return context$2$0.stop();
+	          }
+	        }, null, this);
+	      }
+	    }
+	  });
+	
+	  return AppHandler;
+	})(React.Component);
 	
 	module.exports = AppHandler;
 
@@ -2529,57 +2547,73 @@ webpackJsonp([0],[
 	
 	var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
 	
+	var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc && desc.writable) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _inherits = function (subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+	
 	/*jshint -W018, -W040, -W064, -W083, -W086 */
 	
 	var React = _interopRequire(__webpack_require__(3));
 	
-	var Audio = React.createClass({
-	  displayName: "Audio",
+	var Audio = (function (_React$Component) {
+	  function Audio(props) {
+	    _classCallCheck(this, Audio);
 	
-	  getInitialState: function getInitialState() {
-	    return {
-	      playing: false
-	    };
-	  },
-	
-	  componentDidMount: function componentDidMount() {
-	    this._player = this.getDOMNode().firstChild;
-	    this._player.load();
-	  },
-	
-	  handleClick: function handleClick() {
-	    var playing = !this.state.playing;
-	    this.setState({ playing: playing });
-	    if (playing) {
-	      this._player.play();
-	    } else {
-	      this._player.pause();
-	    }
-	  },
-	
-	  render: function render() {
-	    return React.createElement(
-	      "div",
-	      { className: "audio" },
-	      React.createElement(
-	        "audio",
-	        { loop: true },
-	        React.createElement("source", { src: this.props.src, type: "audio/mpeg" })
-	      ),
-	      React.createElement(
-	        "div",
-	        { onClick: this.handleClick },
-	        React.createElement("i", { className: "fap fap-" + (this.state.playing ? "pause" : "play") }),
-	        React.createElement(
-	          "div",
-	          { className: "text" },
-	          "Music"
-	        )
-	      )
-	    );
+	    _get(Object.getPrototypeOf(Audio.prototype), "constructor", this).call(this, props);
+	    this.state = { playing: false };
+	    this.handleClick = this.handleClick.bind(this);
 	  }
 	
-	});
+	  _inherits(Audio, _React$Component);
+	
+	  _createClass(Audio, {
+	    componentDidMount: {
+	      value: function componentDidMount() {
+	        this._player = React.findDOMNode(this.refs.favmelody);
+	      }
+	    },
+	    handleClick: {
+	      value: function handleClick() {
+	        var playing = !this.state.playing;
+	        this.setState({ playing: playing });
+	        if (playing) {
+	          this._player.play();
+	        } else {
+	          this._player.pause();
+	        }
+	      }
+	    },
+	    render: {
+	      value: function render() {
+	        return React.createElement(
+	          "div",
+	          { className: "audio" },
+	          React.createElement(
+	            "audio",
+	            { ref: "favmelody", loop: true },
+	            React.createElement("source", { src: this.props.src, type: "audio/mpeg" })
+	          ),
+	          React.createElement(
+	            "div",
+	            { onClick: this.handleClick },
+	            React.createElement("i", { className: "fap fap-" + (this.state.playing ? "pause" : "play") }),
+	            React.createElement(
+	              "div",
+	              { className: "text" },
+	              "Music"
+	            )
+	          )
+	        );
+	      }
+	    }
+	  });
+	
+	  return Audio;
+	})(React.Component);
 	
 	module.exports = Audio;
 
@@ -2590,6 +2624,12 @@ webpackJsonp([0],[
 	"use strict";
 	
 	var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _inherits = function (subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 	
 	/*jshint -W018, -W040, -W064, -W083, -W086 */
 	
@@ -2606,65 +2646,78 @@ webpackJsonp([0],[
 	
 	var moment = _interopRequire(__webpack_require__(274));
 	
-	var ItemList = React.createClass({
-	  displayName: "ItemList",
+	var ItemList = (function (_React$Component) {
+	  function ItemList() {
+	    _classCallCheck(this, ItemList);
 	
-	  render: function render() {
-	    var items = this.props.src;
-	    var jsx;
-	
-	    if (items.length === 0) {
-	      jsx = React.createElement(
-	        "div",
-	        { className: "post" },
-	        "No data"
-	      );
-	    } else {
-	      jsx = React.createElement(
-	        "div",
-	        null,
-	        items.map(function (it, i) {
-	          var date = it.date ? moment(it.date).fromNow() : "";
-	          var title = it.title ? it.title : "";
-	          var tags = it.tags ? it.tags : "";
-	          var link = it.link.split("/").pop();
-	          return React.createElement(
-	            "div",
-	            { key: i, className: "post itemlist" },
-	            React.createElement(
-	              "div",
-	              { className: "date" },
-	              date
-	            ),
-	            React.createElement(
-	              Link,
-	              { to: "experiment", params: { link: link } },
-	              React.createElement(
-	                "span",
-	                null,
-	                title
-	              )
-	            ),
-	            React.createElement(
-	              "div",
-	              { className: "tags" },
-	              tags.map(function (tag, i) {
-	                return React.createElement(
-	                  Link,
-	                  { key: tag + i, className: "tag", to: "search", params: { query: tag } },
-	                  tag
-	                );
-	              })
-	            )
-	          );
-	        })
-	      );
+	    if (_React$Component != null) {
+	      _React$Component.apply(this, arguments);
 	    }
-	
-	    return jsx;
 	  }
 	
-	});
+	  _inherits(ItemList, _React$Component);
+	
+	  _createClass(ItemList, {
+	    render: {
+	      value: function render() {
+	        var items = this.props.src;
+	        var jsx;
+	
+	        if (items.length === 0) {
+	          jsx = React.createElement(
+	            "div",
+	            { className: "post" },
+	            "No data"
+	          );
+	        } else {
+	          jsx = React.createElement(
+	            "div",
+	            null,
+	            items.map(function (it, i) {
+	              var date = it.date ? moment(it.date).fromNow() : "";
+	              var title = it.title ? it.title : "";
+	              var tags = it.tags ? it.tags : "";
+	              var link = it.link.split("/").pop();
+	              return React.createElement(
+	                "div",
+	                { key: i, className: "post itemlist" },
+	                React.createElement(
+	                  "div",
+	                  { className: "date" },
+	                  date
+	                ),
+	                React.createElement(
+	                  Link,
+	                  { to: "experiment", params: { link: link } },
+	                  React.createElement(
+	                    "span",
+	                    null,
+	                    title
+	                  )
+	                ),
+	                React.createElement(
+	                  "div",
+	                  { className: "tags" },
+	                  tags.map(function (tag, i) {
+	                    return React.createElement(
+	                      Link,
+	                      { key: tag + i, className: "tag", to: "search", params: { query: tag } },
+	                      tag
+	                    );
+	                  })
+	                )
+	              );
+	            })
+	          );
+	        }
+	
+	        return jsx;
+	      }
+	    }
+	  });
+	
+	  return ItemList;
+	})(React.Component);
 	
 	module.exports = ItemList;
 
@@ -2723,26 +2776,45 @@ webpackJsonp([0],[
 	
 	var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
 	
+	var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _inherits = function (subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+	
 	/*jshint -W018, -W040, -W064, -W083, -W086 */
 	
 	var React = _interopRequire(__webpack_require__(3));
 	
-	var Spinner = React.createClass({
-	  displayName: "Spinner",
+	var Spinner = (function (_React$Component) {
+	  function Spinner() {
+	    _classCallCheck(this, Spinner);
 	
-	  render: function render() {
-	    return React.createElement(
-	      "div",
-	      { className: "spinner" },
-	      React.createElement("div", { className: "rect1 blue" }),
-	      React.createElement("div", { className: "rect2 blue" }),
-	      React.createElement("div", { className: "rect3 blue" }),
-	      React.createElement("div", { className: "rect4 blue" }),
-	      React.createElement("div", { className: "rect5 blue" })
-	    );
+	    if (_React$Component != null) {
+	      _React$Component.apply(this, arguments);
+	    }
 	  }
 	
-	});
+	  _inherits(Spinner, _React$Component);
+	
+	  _createClass(Spinner, {
+	    render: {
+	      value: function render() {
+	        return React.createElement(
+	          "div",
+	          { className: "spinner" },
+	          React.createElement("div", { className: "rect1 blue" }),
+	          React.createElement("div", { className: "rect2 blue" }),
+	          React.createElement("div", { className: "rect3 blue" }),
+	          React.createElement("div", { className: "rect4 blue" }),
+	          React.createElement("div", { className: "rect5 blue" })
+	        );
+	      }
+	    }
+	  });
+	
+	  return Spinner;
+	})(React.Component);
 	
 	module.exports = Spinner;
 
@@ -2790,8 +2862,8 @@ webpackJsonp([0],[
 	
 	    var that = this;
 	    setTimeout(function () {
-	      if (typeof FB !== "undefined") {
-	        var el = that.getDOMNode().childNodes[2];
+	      if (typeof FB !== "undefined" && that.refs && that.refs.fb) {
+	        var el = React.findDOMNode(that.refs.fb);
 	        React.unmountComponentAtNode(el);
 	        FB.XFBML.parse(el);
 	      }
@@ -2835,7 +2907,7 @@ webpackJsonp([0],[
 	        React.createElement("div", { className: "markdown", dangerouslySetInnerHTML: { __html: txt } }),
 	        React.createElement(
 	          "div",
-	          null,
+	          { ref: "fb" },
 	          React.createElement("div", { className: "fb-comments", "data-href": url, "data-width": "100%", "data-numposts": "5", "data-colorscheme": "light" })
 	        )
 	      );
@@ -2855,6 +2927,14 @@ webpackJsonp([0],[
 	
 	var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
 	
+	var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc && desc.writable) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _inherits = function (subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+	
 	/*jshint -W018, -W040, -W064, -W083, -W086 */
 	
 	var React = _interopRequire(__webpack_require__(3));
@@ -2866,45 +2946,61 @@ webpackJsonp([0],[
 	  return domElt.offsetTop + topPosition(domElt.offsetParent);
 	}
 	
-	var InfiniteTracker = React.createClass({
-	  displayName: "InfiniteTracker",
+	var InfiniteTracker = (function (_React$Component) {
+	  function InfiniteTracker(props) {
+	    _classCallCheck(this, InfiniteTracker);
 	
-	  componentDidMount: function componentDidMount() {
-	    if (window) {
-	      window.addEventListener("scroll", this.onPageScroll);
-	      window.addEventListener("resize", this.onResize);
-	    }
-	    this.onPageScroll();
-	  },
-	
-	  componentWillUnmount: function componentWillUnmount() {
-	    if (window) {
-	      window.removeEventListener("scroll", this.onPageScroll);
-	      window.removeEventListener("resize", this.onResize);
-	    }
-	  },
-	
-	  onResize: function onResize(e) {
-	    this.onPageScroll();
-	  },
-	
-	  onPageScroll: function onPageScroll() {
-	    var el = this.getDOMNode();
-	    var scrollTop = window.pageYOffset !== undefined ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-	    if (topPosition(el) + el.offsetHeight - scrollTop - window.innerHeight < 0) {
-	      this.props.loadMore();
-	    }
-	  },
-	
-	  render: function render() {
-	    return React.createElement(
-	      "div",
-	      null,
-	      this.props.children
-	    );
+	    _get(Object.getPrototypeOf(InfiniteTracker.prototype), "constructor", this).call(this, props);
+	    this.onPageScroll = this.onPageScroll.bind(this);
 	  }
 	
-	});
+	  _inherits(InfiniteTracker, _React$Component);
+	
+	  _createClass(InfiniteTracker, {
+	    componentDidMount: {
+	      value: function componentDidMount() {
+	        if (window) {
+	          window.addEventListener("scroll", this.onPageScroll);
+	          window.addEventListener("resize", this.onResize);
+	        }
+	        this.onPageScroll();
+	      }
+	    },
+	    componentWillUnmount: {
+	      value: function componentWillUnmount() {
+	        if (window) {
+	          window.removeEventListener("scroll", this.onPageScroll);
+	          window.removeEventListener("resize", this.onResize);
+	        }
+	      }
+	    },
+	    onResize: {
+	      value: function onResize(e) {
+	        this.onPageScroll();
+	      }
+	    },
+	    onPageScroll: {
+	      value: function onPageScroll() {
+	        var el = React.findDOMNode(this.refs.itrac);
+	        var scrollTop = window.pageYOffset !== undefined ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+	        if (topPosition(el) + el.offsetHeight - scrollTop - window.innerHeight < 0) {
+	          this.props.loadMore();
+	        }
+	      }
+	    },
+	    render: {
+	      value: function render() {
+	        return React.createElement(
+	          "div",
+	          { ref: "itrac" },
+	          this.props.children
+	        );
+	      }
+	    }
+	  });
+	
+	  return InfiniteTracker;
+	})(React.Component);
 	
 	module.exports = InfiniteTracker;
 
