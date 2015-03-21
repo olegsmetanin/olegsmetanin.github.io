@@ -5,6 +5,8 @@ import { Route, RouteHandler, DefaultRoute, State, Link, Redirect } from 'react-
 import marked from 'marked';
 import moment from 'moment';
 import Spinner from './../components/Spinner.jsx';
+import { PromiseUtils } from './../utils/Promise.js';
+
 
 let Item = React.createClass({
   contextTypes: {
@@ -19,15 +21,17 @@ let Item = React.createClass({
   componentDidMount () {
     this.AppStore.addListener('change', this.onAppStoreChange);
     this.getResource(this.props.link);
+    this.initFBComments();   
+  },
 
-    let that = this;
-    setTimeout(function () {
-      if (typeof(FB) !== 'undefined' && that.refs && that.refs.fb) {
-        var el = React.findDOMNode(that.refs.fb);
+  initFBComments() {
+    if (typeof(FB) !== 'undefined' && this.refs && this.refs.fb) {
+        var el = React.findDOMNode(this.refs.fb);
         React.unmountComponentAtNode(el);
         FB.XFBML.parse(el);
-      }
-    },300);      
+    } else {
+      setTimeout(this.initFBComments, 300);
+    }
   },
 
   componentWillUnmount() {
