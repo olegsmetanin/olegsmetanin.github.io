@@ -4,6 +4,7 @@
 import React from 'react';
 import Router from 'react-router';
 import Flux from './Flux.js';
+import FluxComponent from 'flummox/component'
 import routes from './routes.js';
 import { performRouteHandlerStaticMethod } from './utils/Promise.js';
 import 'babel/polyfill';
@@ -21,10 +22,10 @@ export default function(divid) {
 
       await performRouteHandlerStaticMethod(state.routes, 'routerWillRunOnClient', state, flux);
 
-      React.withContext(
-        { flux },
-        () => React.render(<Handler />, document.getElementById(divid))
-        );
+      React.render(<FluxComponent
+        flux={flux}
+        render={() => <Handler />} />, document.getElementById(divid));
+
     }
  
     run().catch(error => {

@@ -11,15 +11,15 @@
     "d3": "latest",
     "express": "latest",
     "fastclick": "latest",
-    "flummox": "~2.11.0",
+    "flummox": "~3.1.0",
     "jquery": "latest",
     "lru-cache": "^2.5.0",
     "lunr": "^0.5.7",
     "marked": "^0.3.3",
     "moment": "^2.9.0",
-    "react": "~0.12.2",
+    "react": "~0.13.1",
     "react-document-title": "~1.0.2",
-    "react-router": "~0.12.4",
+    "react-router": "~0.13.1",
     "superagent": "latest"
   },
   "repository": {

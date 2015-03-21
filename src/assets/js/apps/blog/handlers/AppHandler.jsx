@@ -68,7 +68,7 @@ let AppHandler = React.createClass({
                    </Link>
                   </li>
                   <li className="item">
-                    <Audio src="http://cs1-15v4.vk-cdn.net/p5/c04cbeae3a7b27.mp3?extra=sRQZPmq4UvrFF8urqBOSHbkvP00QRdsv-a-RGl670XSukmfoo7HLWGDG1a5_cs1JdxSvdUIT4urixNeW6Q4mdvJGJAoCq1dDpg"/>
+                    <Audio src="http://playmusics.net/get-audio/aHR0cDovL2NzMTI0OXY0LnZrLm1lL3U1OTc3ODE3L2F1ZGlvcy9hN2E2YWRmYmZmNDMubXAzP2V4dHJhPXFsd3JfUnpsaU5nX0NieEZSZlM4NklVS1dWQXRkaTlzRXNNSEltUWc3U2FiTHU4M0JOQVRhYW1hLTRJbXlCSGtkaHpJNGpLR0RaTlJBOW1SdmpDVWZWTW5yODNEWTlDa3h3?filename=Secret+Garden-Lotus+%28%D0%A6%D0%B2%D0%B5%D1%82%D0%B5%D0%BD%D0%B8%D0%B5+%D1%81%D0%B0%D0%BA%D1%83%D1%80%D1%8B%29.mp3"/>
                   </li>
                 </ul>
                 <ul className="menu pull-right">
