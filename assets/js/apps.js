@@ -2845,6 +2845,8 @@ webpackJsonp([0],[
 	
 	var Spinner = _interopRequire(__webpack_require__(236));
 	
+	var PromiseUtils = __webpack_require__(89).PromiseUtils;
+	
 	var Item = React.createClass({
 	  displayName: "Item",
 	
@@ -2859,15 +2861,17 @@ webpackJsonp([0],[
 	  componentDidMount: function componentDidMount() {
 	    this.AppStore.addListener("change", this.onAppStoreChange);
 	    this.getResource(this.props.link);
+	    this.initFBComments();
+	  },
 	
-	    var that = this;
-	    setTimeout(function () {
-	      if (typeof FB !== "undefined" && that.refs && that.refs.fb) {
-	        var el = React.findDOMNode(that.refs.fb);
-	        React.unmountComponentAtNode(el);
-	        FB.XFBML.parse(el);
-	      }
-	    }, 300);
+	  initFBComments: function initFBComments() {
+	    if (typeof FB !== "undefined" && this.refs && this.refs.fb) {
+	      var el = React.findDOMNode(this.refs.fb);
+	      React.unmountComponentAtNode(el);
+	      FB.XFBML.parse(el);
+	    } else {
+	      setTimeout(this.initFBComments, 300);
+	    }
 	  },
 	
 	  componentWillUnmount: function componentWillUnmount() {
