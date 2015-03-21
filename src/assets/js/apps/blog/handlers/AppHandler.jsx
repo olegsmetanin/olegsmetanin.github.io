@@ -2,23 +2,17 @@ import React from 'react';
 import { Route, RouteHandler, DefaultRoute, State, Link, Redirect } from 'react-router'; 
 import Audio from './../components/Audio.jsx';
 
-let AppHandler = React.createClass({
+export default class AppHandler extends React.Component {
   
-  statics: {
-    async routerWillRunOnClient(state, flux) {
-      ga('send', 'pageview', '#'+state.path);
-      let sitemap = flux.getStore('appStore').getSiteMap();
-      if (Object.getOwnPropertyNames(sitemap).length === 0) {
-        let appActions = flux.getActions('appActions');
-        await appActions.getSiteMap();
-        await appActions.getSearchIndex();
-      }
+  static async routerWillRunOnClient(state, flux) {
+    ga('send', 'pageview', '#'+state.path);
+    let sitemap = flux.getStore('appStore').getSiteMap();
+    if (Object.getOwnPropertyNames(sitemap).length === 0) {
+      let appActions = flux.getActions('appActions');
+      await appActions.getSiteMap();
+      await appActions.getSearchIndex();
     }
-  },
-
-  contextTypes: {
-    flux: React.PropTypes.object.isRequired,
-  },
+  }
 
   render() {
     return (
@@ -106,7 +100,5 @@ let AppHandler = React.createClass({
         <RouteHandler />
       </div>
       );
-  },
-});
-
-export default AppHandler;
+  }
+}

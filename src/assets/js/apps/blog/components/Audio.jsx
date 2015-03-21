@@ -2,20 +2,19 @@
 
 import React from 'react';
 
-let Audio = React.createClass({
+export default class Audio extends React.Component {
 
-  getInitialState() {   
-    return {
-        playing: false
-    }
-  },
+  constructor(props) {
+    super(props);
+    this.state = { playing: false };
+    this.handleClick = this.handleClick.bind(this);
+  }
   
-  componentDidMount () {
-    this._player = this.getDOMNode().firstChild;
-    this._player.load();
-  },
+  componentDidMount () {    
+    this._player = React.findDOMNode(this.refs.favmelody);
+  }
 
-  handleClick() { 
+  handleClick() {  
     let playing = !this.state.playing;
     this.setState({playing:playing});
     if (playing) {
@@ -23,11 +22,11 @@ let Audio = React.createClass({
     } else {
       this._player.pause();
     }
-  },  
+  }
 
   render() {
     return <div className="audio">
-      <audio loop>
+      <audio ref="favmelody" loop>
         <source src={this.props.src} type="audio/mpeg"/>
       </audio>
       <div onClick={this.handleClick}>
@@ -37,6 +36,4 @@ let Audio = React.createClass({
     </div>;
   }
 
-});
-
-export default Audio;
+}

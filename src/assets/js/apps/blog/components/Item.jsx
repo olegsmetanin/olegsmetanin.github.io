@@ -22,13 +22,12 @@ let Item = React.createClass({
 
     let that = this;
     setTimeout(function () {
-      if (typeof(FB) !== 'undefined') {
-        var el = that.getDOMNode().childNodes[2];
+      if (typeof(FB) !== 'undefined' && that.refs && that.refs.fb) {
+        var el = React.findDOMNode(that.refs.fb);
         React.unmountComponentAtNode(el);
         FB.XFBML.parse(el);
       }
     },300);      
-
   },
 
   componentWillUnmount() {
@@ -48,27 +47,27 @@ let Item = React.createClass({
   },
 
 
-    render () {
+  render () {
+    // 
+    let txt = this.state.text ? marked(this.state.text): 'loading';
+    let date = this.state.date ? moment(this.state.date).fromNow() : '';
+    var jsx;
+    if (this.state.store_miss) {
+      jsx = <Spinner/>
+    } else {
+      let url = 'http://oleg.smetan.in/#'+this.props.link;
       // 
-      let txt = this.state.text ? marked(this.state.text): 'loading';
-      let date = this.state.date ? moment(this.state.date).fromNow() : '';
-      var jsx;
-      if (this.state.store_miss) {
-        jsx = <Spinner/>
-      } else {
-        let url = 'http://oleg.smetan.in/#'+this.props.link;
-        // 
-        jsx = <div className="post markdown">
-          <div className="date">{date}</div>
-          <div className="markdown" dangerouslySetInnerHTML={{__html: txt}}/>
-          <div>
-            <div className="fb-comments" data-href={url} data-width="100%" data-numposts="5" data-colorscheme="light"></div>
-          </div>
+      jsx = <div className="post markdown">
+        <div className="date">{date}</div>
+        <div className="markdown" dangerouslySetInnerHTML={{__html: txt}}/>
+        <div ref="fb">
+          <div className="fb-comments" data-href={url} data-width="100%" data-numposts="5" data-colorscheme="light"></div>
         </div>
+      </div>
 
-      }
-      return jsx;
     }
+    return jsx;
+  }
 
 });
 

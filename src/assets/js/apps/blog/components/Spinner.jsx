@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-let Spinner = React.createClass({
+export default class Spinner extends React.Component {
 
   render() {
     return <div className="spinner">
@@ -14,6 +14,4 @@ let Spinner = React.createClass({
           </div>;
   }
 
-});
-
-export default Spinner;
+}

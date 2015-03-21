@@ -9,7 +9,12 @@ function topPosition(domElt) {
   return domElt.offsetTop + topPosition(domElt.offsetParent);
 }
 
-let InfiniteTracker = React.createClass({
+export default class InfiniteTracker extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.onPageScroll = this.onPageScroll.bind(this);
+  }
 
   componentDidMount() {
     if (window) {
@@ -17,31 +22,29 @@ let InfiniteTracker = React.createClass({
         window.addEventListener('resize', this.onResize);
     }
     this.onPageScroll();
-  },
+  }
 
   componentWillUnmount() {
     if (window) {
         window.removeEventListener('scroll', this.onPageScroll);
         window.removeEventListener('resize', this.onResize);
     }
-  },
+  }
 
   onResize(e) {
     this.onPageScroll();
-  },
+  }
 
   onPageScroll() {
-    var el = this.getDOMNode();
+    var el = React.findDOMNode(this.refs.itrac);
     var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
     if (topPosition(el) + el.offsetHeight - scrollTop - window.innerHeight < 0) {
       this.props.loadMore();
     }
-  },
-
-  render() {
-    return <div>{this.props.children}</div>;
   }
 
-});
+  render() {
+    return <div ref="itrac">{this.props.children}</div>;
+  }
 
-export default InfiniteTracker;
+}

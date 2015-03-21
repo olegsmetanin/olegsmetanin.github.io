@@ -4,7 +4,7 @@ import React from 'react';
 import { Route, RouteHandler, DefaultRoute, State, Link, Redirect } from 'react-router'; 
 import moment from 'moment';
 
-let ItemList = React.createClass({
+export default class ItemList extends React.Component {
     render () {
       let items = this.props.src;
       var jsx;
@@ -42,6 +42,4 @@ let ItemList = React.createClass({
 
     }
 
-});
-
-export default ItemList;
+}
