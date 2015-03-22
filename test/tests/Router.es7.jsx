@@ -15,12 +15,14 @@ describe('Router', function () {
 
             componentWillMount() {
                 this.context.should.have.property('router');
-                this.context.router.getCurrentPath().should.equal('/home');
+                this.context.router.getCurrentPath().should.equal('/page/1');
+                this.context.router.getCurrentParams().should.have.property('id', '1');
             }
 
             render() {
                 this.context.should.have.property('router');
-                this.context.router.getCurrentPath().should.equal('/home');
+                this.context.router.getCurrentPath().should.equal('/page/1');
+                this.context.router.getCurrentParams().should.have.property('id', '1');
                 return <div></div>;
             }
         }
@@ -29,9 +31,9 @@ describe('Router', function () {
           router: React.PropTypes.func.isRequired,
         };
 
-        let routes = <Route path="/home" handler={Page}/>;
+        let routes = <Route path="/page/?:id?" handler={Page}/>;
 
-        Router.run(routes, '/home', function (Handler) {
+        Router.run(routes, '/page/1', function (Handler) {
             React.renderToString(<Handler />);
             done();
         });
