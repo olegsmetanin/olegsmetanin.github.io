@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "http://oleg.smetan.in blog",
   "scripts": {
-    "build": "babel-node --experimental gulpfile.es7.js"
+    "test": "mocha ./test/test.es7.js"
   },
   "dependencies": {
     "body-parser": "latest",
