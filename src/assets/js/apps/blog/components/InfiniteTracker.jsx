@@ -12,6 +12,7 @@ export default class InfiniteTracker extends React.Component {
   constructor(props) {
     super(props);
     this.onPageScroll = this.onPageScroll.bind(this);
+    this.onResize = this.onResize.bind(this);
   }
 
   componentDidMount() {
