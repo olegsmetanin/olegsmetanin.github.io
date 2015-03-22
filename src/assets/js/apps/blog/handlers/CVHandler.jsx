@@ -3,23 +3,14 @@ import { Route, RouteHandler, DefaultRoute, State, Link, Redirect, Navigation } 
 import { Flummox, Actions, Store } from 'flummox';
 import ItemList from './../components/ItemList.jsx';
 import DocumentTitle from 'react-document-title';
-import './../utils/Array.js'; 
+import './../utils/Array.js';
 import marked from 'marked';
-import { debounce } from './../utils/Timer.js';  
+import { debounce } from './../utils/Timer.js';
 import Item from './../components/Item.jsx';
 
-let CVHandler = React.createClass({
-  
-  mixins: [State, Navigation],
+export default class CVHandler extends React.Component {
 
-  statics: {
-  },
-
-  contextTypes: {
-    flux: React.PropTypes.object.isRequired,
-  },
-
-  render() { 
+  render() {
     return <div className="content">
       <section>
         <ul className="menu without-search">
@@ -34,10 +25,8 @@ let CVHandler = React.createClass({
         <Item link="/cv"/>
 
       </section>
-    </div>
+    </div>;
 
   }
 
-});
-
-export default CVHandler;
+}

@@ -3,13 +3,13 @@ import { Route, RouteHandler, DefaultRoute, State, Link, Redirect, Navigation } 
 import { Flummox, Actions, Store } from 'flummox';
 import ItemList from './../components/ItemList.jsx';
 import DocumentTitle from 'react-document-title';
-import './../utils/Array.js'; 
+import './../utils/Array.js';
 import marked from 'marked';
-import { debounce } from './../utils/Timer.js';  
+import { debounce } from './../utils/Timer.js';
 import Spinner from './../components/Spinner.jsx';
 
 let ExperimentsHandler = React.createClass({
-  
+
   mixins: [State, Navigation],
 
   statics: {
@@ -19,10 +19,10 @@ let ExperimentsHandler = React.createClass({
     flux: React.PropTypes.object.isRequired,
   },
 
-  getInitialState() {  
+  getInitialState() {
     return {
-        query:''
-    }
+        query: '',
+    };
   },
 
   componentWillMount () {
@@ -42,15 +42,15 @@ let ExperimentsHandler = React.createClass({
     this.transitionTo('/search/'+query);
   },
 
-  setSearchQuery(query) {  
+  setSearchQuery(query) {
     this.setState({query: query});
   },
 
-  render() { 
+  render() {
     return <div className="content">
       <div className="search">
         <div className="search-wrap-1">
-          <input type="text" value={this.state.query} onChange={this.handleChange} placeholder="Search in experiments"/>        
+          <input type="text" value={this.state.query} onChange={this.handleChange} placeholder="Search in experiments"/>
         </div>
       </div>
       <section>
@@ -74,12 +74,12 @@ let ExperimentsHandler = React.createClass({
                </Link>
               </li>
             </ul>
-        
+
            <RouteHandler setSearchQuery={this.setSearchQuery}/>
 
       </section>
-    </div>
-  }
+    </div>;
+  },
 });
 
 export default ExperimentsHandler;

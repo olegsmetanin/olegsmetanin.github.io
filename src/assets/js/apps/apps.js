@@ -1,9 +1,8 @@
-'use strict';
-/*global __non_webpack_require__:true*/
-
+/*global __non_webpack_require__:true, module:true */
 import blog from './blog/index.jsx';
 
-window['require'] = function(parentRequire) {
+/*eslint-disable camelcase */
+window.require = function(parentRequire) {
     return function(module) {
         switch(module) {
         case "blog": return blog;
@@ -11,5 +10,6 @@ window['require'] = function(parentRequire) {
         return parentRequire(module);
     };
 }(typeof __non_webpack_require__ === "function" ? __non_webpack_require__ : function() {
-    throw new Error("Module '" + module + "' not found")
+    throw new Error("Module '" + module + "' not found");
 });
+/*eslint-enable camelcase */

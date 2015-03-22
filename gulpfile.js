@@ -10,7 +10,7 @@ var gulp = require('gulp'),
     source = require('vinyl-source-stream'),
     exorcist = require('exorcist'),
     uglifyify = require('uglifyify'),
-    jshint = require("gulp-jshint"),
+    eslint = require('gulp-eslint'),
     gulpsass = require('gulp-sass'),
     sketch = require("gulp-sketch"),
     iconfont = require('gulp-iconfont'),
@@ -37,6 +37,13 @@ gulp.task("webpack-watch", function() {
     return gulp.src('src/assets/js/apps/apps.js')
       .pipe(webpack(config))
       .pipe(gulp.dest(dest+'/assets/js/'));
+});
+
+gulp.task('lint', function () {
+    return gulp.src(['src/assets/js/**'])
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failOnError());
 });
 
 gulp.task('styles', function() {

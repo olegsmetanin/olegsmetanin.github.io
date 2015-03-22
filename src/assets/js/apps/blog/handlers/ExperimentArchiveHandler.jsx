@@ -6,53 +6,48 @@ import DocumentTitle from 'react-document-title';
 import Item from './../components/Item.jsx';
 import InfiniteTracker from './../components/InfiniteTracker.jsx';
 import Spinner from './../components/Spinner.jsx';
-import './../utils/Array.js'; 
+import './../utils/Array.js';
 import marked from 'marked';
 import moment from 'moment';
 
-function entries(obj) {
-   return (for (key of Object.keys(obj)) [key, obj[key]]);
-}
+export default class ExperimentArchiveHandler extends React.Component {
 
-let ExperimentArchiveHandler = React.createClass({
-  mixins: [State],
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-  contextTypes: {
-    flux: React.PropTypes.object.isRequired,
-  },
-
-  getInitialState() {   
+  componentWillMount() {
     this.AppStore = this.context.flux.getStore('appStore');
-    let items = this.AppStore.getExperiments(); 
-    return {
-        items: items
-    }
-  },
+    this.getFromStore();
+  }
 
   componentDidMount () {
-    this.AppStore.addListener('change', this.onAppStoreChange);
-  },
+    this.AppStore.addListener('change', this.getFromStore);
+  }
 
-  componentWillUnmount() {
-    this.AppStore.removeListener('change', this.onAppStoreChange);
-  },
+  componentWillUnmount () {
+    this.AppStore.removeListener('change', this.getFromStore);
+  }
 
-  onAppStoreChange () {
+  getFromStore () {
     this.setState({items: this.AppStore.getExperiments()});
-  },
+  }
 
   render() {
     let items = this.state.items;
     var jsx;
 
     if (items.store_miss) {
-        jsx = <Spinner/>
+        jsx = <Spinner/>;
     } else {
-        jsx = <ItemList src={items}/>
+        jsx = <ItemList src={items}/>;
     }
 
     return jsx;
   }
-});
+}
 
-export default ExperimentArchiveHandler;
+ExperimentArchiveHandler.contextTypes = {
+  flux: React.PropTypes.object.isRequired,
+};

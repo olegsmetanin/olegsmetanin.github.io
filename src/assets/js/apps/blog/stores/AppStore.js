@@ -1,8 +1,8 @@
 import { Flummox, Actions, Store } from 'flummox';
-import LRU from 'lru-cache';
+import lru from 'lru-cache';
 import lunr from 'lunr';
 
-class AppStore extends Store { 
+class AppStore extends Store {
 
   constructor(flux) {
     super();
@@ -14,11 +14,11 @@ class AppStore extends Store {
     this.register(appActionIds.getInstagrams, this.handleGetInstagrams);
 
     this._siteMap = {};
-    this._ResourcesLRU = LRU(20);
-    this._ExperimentsSortedArray = [];
+    this._resourcesLRU = lru(20);
+    this._experimentsSortedArray = [];
     this._searchIndex = {};
 
-    this._InstagramLRU = LRU(20);
+    this._instagramLRU = lru(20);
 
     this.state = {};
 
@@ -35,8 +35,8 @@ class AppStore extends Store {
       }
 
     }
-    arr.sort((a,b) => (a.date < b.date));
-    this._ExperimentsSortedArray = arr;
+    arr.sort((a, b) => (a.date < b.date));
+    this._experimentsSortedArray = arr;
     this.emit('change');
   }
 
@@ -54,63 +54,61 @@ class AppStore extends Store {
   }
 
   handleGetResource(resourceDef) {
-    this._ResourcesLRU.set(resourceDef.link, resourceDef);
+    this._resourcesLRU.set(resourceDef.link, resourceDef);
     this.emit('change');
   }
 
   getResource(postLink) {
     var res;
-    if (this._ResourcesLRU.has(postLink)) {
-      res = this._ResourcesLRU.get(postLink);
-      res.store_miss = false;
+    if (this._resourcesLRU.has(postLink)) {
+      res = this._resourcesLRU.get(postLink);
+      res.STORE_MISS = false;
     } else {
-      res = {postLink: postLink, store_miss: true}
+      res = {postLink: postLink, STORE_MISS: true};
     }
     return res;
   }
 
   getExperiments() {
-    return this._ExperimentsSortedArray;
+    return this._experimentsSortedArray;
   }
 
   getLastExperiments(lastIndex, count) {
-    return this._ExperimentsSortedArray.slice(lastIndex, lastIndex+count);
+    return this._experimentsSortedArray.slice(lastIndex, lastIndex+count);
   }
 
   getExperimentTags() {
     let res = [];
-    this._ExperimentsSortedArray.map((taglist,i) => {
-      taglist.tags.map((tag, j) => {
+    this._experimentsSortedArray.map((taglist) => {
+      taglist.tags.map((tag) => {
         if (res.indexOf(tag) === -1) {
           res.push(tag);
         }
-      })
-    })
+      });
+    });
     return res;
   }
-  
+
   getSearchItems(query) {
     var res = this._searchIndex.search(query);
     return res.map(el => this._siteMap[el.ref]);
   }
 
-
   getInstagrams(userid) {
     var res;
-    if (this._InstagramLRU.has(userid)) {
-      res = this._InstagramLRU.get(userid);
-      res.store_miss = false;
+    if (this._instagramLRU.has(userid)) {
+      res = this._instagramLRU.get(userid);
+      res.STORE_MISS = false;
     } else {
-      res = {items:[], store_miss: true}
+      res = {items: [], STORE_MISS: true};
     }
     return res;
   }
 
   handleGetInstagrams(instagrams) {
-    this._InstagramLRU.set(instagrams.userid, instagrams);
+    this._instagramLRU.set(instagrams.userid, instagrams);
     this.emit('change');
   }
-
 
 }
 

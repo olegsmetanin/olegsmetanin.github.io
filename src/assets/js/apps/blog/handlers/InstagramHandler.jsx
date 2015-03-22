@@ -3,23 +3,14 @@ import { Route, RouteHandler, DefaultRoute, State, Link, Redirect, Navigation } 
 import { Flummox, Actions, Store } from 'flummox';
 import ItemList from './../components/ItemList.jsx';
 import DocumentTitle from 'react-document-title';
-import './../utils/Array.js'; 
+import './../utils/Array.js';
 import marked from 'marked';
-import { debounce } from './../utils/Timer.js';  
+import { debounce } from './../utils/Timer.js';
 import Instagram from './../components/Instagram.jsx';
 
-let InstagramHandler = React.createClass({
-  
-  mixins: [State, Navigation],
+export default class InstagramHandler extends React.Component {
 
-  statics: {
-  },
-
-  contextTypes: {
-    flux: React.PropTypes.object.isRequired,
-  },
-
-  render() { 
+  render() {
     return <div className="content">
       <section>
         <ul className="menu without-search">
@@ -34,9 +25,7 @@ let InstagramHandler = React.createClass({
         <Instagram userid="54715992" clientid="4c91ac279d3f4625a07fe93ae8236742"/>
 
       </section>
-    </div>
+    </div>;
   }
 
-});
-
-export default InstagramHandler;
+}

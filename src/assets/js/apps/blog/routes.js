@@ -13,13 +13,13 @@ import InstagramHandler from './handlers/InstagramHandler.jsx';
 
 let routes = (
   <Route handler={AppHandler}>
-	<Redirect from="/" to="/experiments"/>
+    <Redirect from="/" to="/experiments"/>
     <Route name="experiments" handler={ExperimentsHandler}>
-    	<DefaultRoute name="experimentlist" handler={ExperimentListHandler}/>
-    	<Route name="experimentarchive" path="/experiments/archive" handler={ExperimentArchiveHandler}/>
-		  <Route name="experimenttags" path="/experiments/tags" handler={ExperimentTagsHandler}/>
-    	<Route name="experiment" path="/experiment/:link" handler={ExperimentHandler}/>
-    	<Route name="search" path="/search/?:query?" handler={ExperimentSearchHandler}/>
+        <DefaultRoute name="experimentlist" handler={ExperimentListHandler}/>
+        <Route name="experimentarchive" path="/experiments/archive" handler={ExperimentArchiveHandler}/>
+          <Route name="experimenttags" path="/experiments/tags" handler={ExperimentTagsHandler}/>
+        <Route name="experiment" path="/experiment/:link" handler={ExperimentHandler}/>
+        <Route name="search" path="/search/?:query?" handler={ExperimentSearchHandler}/>
     </Route>
     <Route name="cv" path="/cv" handler={CVHandler}/>
     <Route name="instagram" path="/instagram" handler={InstagramHandler}/>

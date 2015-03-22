@@ -1,7 +1,7 @@
 /*jshint -W018, -W040, -W064, -W083, -W086 */
 
 import React from 'react';
-import { Route, RouteHandler, DefaultRoute, State, Link, Redirect } from 'react-router'; 
+import { Route, RouteHandler, DefaultRoute, State, Link, Redirect } from 'react-router';
 import marked from 'marked';
 import moment from 'moment';
 import Spinner from './../components/Spinner.jsx';
@@ -11,7 +11,7 @@ let Instagram = React.createClass({
     flux: React.PropTypes.object.isRequired,
   },
 
-  getInitialState() {   
+  getInitialState() {
     this.AppStore = this.context.flux.getStore('appStore');
     return this.AppStore.getInstagrams(this.props.userid);
   },
@@ -19,7 +19,7 @@ let Instagram = React.createClass({
   componentDidMount () {
     this.AppStore.addListener('change', this.onAppStoreChange);
     let appActions = this.context.flux.getActions('appActions');
-    appActions.getInstagrams({userid:this.props.userid, clientid: this.props.clientid})
+    appActions.getInstagrams({userid: this.props.userid, clientid: this.props.clientid});
   },
 
   componentWillUnmount() {
@@ -34,12 +34,12 @@ let Instagram = React.createClass({
     var jsx;
 
     if (this.state.store_miss) {
-      jsx = <Spinner/>
+      jsx = <Spinner/>;
     } else {
       let data = this.state.data;
       jsx = <div>
-          {data.map((item,i) => {
-            let date = moment.unix(item.caption.created_time).fromNow();//moment(item.caption.created_time*1000);
+          {data.map((item, i) => {
+            let date = moment.unix(item.caption.created_time).fromNow();
             return <div key={i} className="post instagram">
               <div className="date-wrap">
                 <span className="date">{date}</span>
@@ -50,12 +50,12 @@ let Instagram = React.createClass({
               </span>
               </div>
 
-              <a href={item.link} className="imgwrap" target="_blank"> 
+              <a href={item.link} className="imgwrap" target="_blank">
                 <img src={item.images.standard_resolution.url}/>
               </a>
 
               <div className="notes">
-                <span className="likes"> 
+                <span className="likes">
                   <i className="fap fap-heart"></i>
                   {item.likes.count}
                 </span>
@@ -63,18 +63,18 @@ let Instagram = React.createClass({
                   <i className="fap fap-comment"></i>
                   {item.comments.count}
                 </span>
-              </div>   
+              </div>
 
               <div>
 
 
               </div>
-            </div>         
+            </div>;
           })}
-      </div>
+      </div>;
     }
     return jsx;
-  }
+  },
 });
 
 export default Instagram;

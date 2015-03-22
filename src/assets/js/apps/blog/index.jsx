@@ -1,4 +1,3 @@
-'use strict';
 /*jshint -W018, -W040, -W064, -W083, -W086 */
 
 import React from 'react';
@@ -14,7 +13,7 @@ FastClick.attach(document.body);
 
 export default function(divid) {
 
-  let flux = new Flux(); 
+  let flux = new Flux();
 
   Router.run(routes, (Handler, state) => {
 
@@ -27,12 +26,12 @@ export default function(divid) {
         render={() => <Handler />} />, document.getElementById(divid));
 
     }
- 
+
     run().catch(error => {
       throw error;
     });
 
-  })
+  });
 
 
 }

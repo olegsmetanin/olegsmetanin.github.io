@@ -41,14 +41,14 @@ export class PromiseUtils {
                         if (predicate(val, counter)) {
                             setTimeout(() => {
                                 return innerPromiseWhile(promise, predicate, timeout, counter + 1)
-                                    .then((val1) => resolve(val1), (err1) => reject(err1))
+                                    .then((val1) => resolve(val1), (err1) => reject(err1));
                             }, timeout(counter));
                         } else {
-                            resolve(val)
+                            resolve(val);
                         }
-                    }, (err) => reject(err))
-            })
-        }
+                    }, (err) => reject(err));
+            });
+        };
 
         return innerPromiseWhile(promise, predicate, timeout, c);
 

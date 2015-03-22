@@ -1,6 +1,3 @@
-'use strict';
-/*jshint -W018, -W040, -W064, -W083, -W086 */
-
 import React from 'react';
 import Router from 'react-router';
 import Flux from './Flux.js';
@@ -15,7 +12,7 @@ export default function (req, res) {
   let flux = new Flux();
 
   Router.run(routes, req.url, function (Handler, state) {
-    
+
     async function run() {
 
       await performRouteHandlerStaticMethod(state.routes, 'routerWillRunOnServer', state, flux);
@@ -23,7 +20,7 @@ export default function (req, res) {
       React.withContext(
         { flux },
         () => {
-          
+
           let content = React.renderToString(<Handler />);
           let title = DocumentTitle.rewind();
 
@@ -50,9 +47,9 @@ export default function (req, res) {
                 </script>
               </body>
             </html>`)
-            .end()
+            .end();
         }
-        );
+      );
     }
 
     run().catch(error => {

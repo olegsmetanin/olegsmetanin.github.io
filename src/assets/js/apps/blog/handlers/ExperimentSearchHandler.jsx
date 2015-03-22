@@ -1,6 +1,3 @@
-"use strict";
-/*jshint -W018, -W040, -W064, -W083, -W086 */
-
 import React from 'react';
 import { Route, RouteHandler, DefaultRoute, State, Link, Redirect } from 'react-router';
 import { Flummox, Actions, Store } from 'flummox';
@@ -8,7 +5,7 @@ import ItemList from './../components/ItemList.jsx';
 import DocumentTitle from 'react-document-title';
 import Spinner from './../components/Spinner.jsx';
 
-import { debounce } from './../utils/Timer.js';  
+import { debounce } from './../utils/Timer.js';
 import moment from 'moment';
 
 let ExperimentSearchHandler = React.createClass({
@@ -17,11 +14,11 @@ let ExperimentSearchHandler = React.createClass({
   statics: {
     willTransitionFrom(transition, component) {
       if (transition.path.indexOf('/search/') !== 0) {
-        component.state.setSearchQuery('');       
+        component.state.setSearchQuery('');
       }
-    }
+    },
   },
-  
+
   contextTypes: {
     flux: React.PropTypes.object.isRequired,
   },
@@ -29,10 +26,10 @@ let ExperimentSearchHandler = React.createClass({
   getInitialState() {
     this.AppStore = this.context.flux.getStore('appStore');
     return {
-      query:this.getParams().query,
+      query: this.getParams().query,
       setSearchQuery: this.props.setSearchQuery,
-      items: this.AppStore.getSearchItems(this.getParams().query)
-    }
+      items: this.AppStore.getSearchItems(this.getParams().query),
+    };
   },
 
   componentWillReceiveProps() {
@@ -52,7 +49,7 @@ let ExperimentSearchHandler = React.createClass({
   },
 
   onAppStoreChange () {
-    this.setState({items:this.AppStore.getSearchItems(this.state.query)});
+    this.setState({items: this.AppStore.getSearchItems(this.state.query)});
   },
 
   render() {
@@ -60,13 +57,13 @@ let ExperimentSearchHandler = React.createClass({
     var jsx;
 
     if (items.store_miss) {
-        jsx = <Spinner/>
+        jsx = <Spinner/>;
     } else {
-        jsx = <ItemList src={items}/>
+        jsx = <ItemList src={items}/>;
     }
 
     return jsx;
-  }
+  },
 });
 
 export default ExperimentSearchHandler;

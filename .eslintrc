@@ -1,0 +1,28 @@
+{
+    "ecmaFeatures": {
+        "blockBindings": true,
+        "forOf": true,
+        "jsx": true
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "mocha": true,
+        "es6": true
+    },
+    "globals": {
+        "document": true,
+        "require": true,
+        "window": true
+    },
+    "parser": "babel-eslint",
+    "rules": {
+        "comma-dangle": [
+            2,
+            "always-multiline"
+        ],
+        "no-underscore-dangle": 0,
+        "quotes": "single",
+        "strict": 0
+    }
+}

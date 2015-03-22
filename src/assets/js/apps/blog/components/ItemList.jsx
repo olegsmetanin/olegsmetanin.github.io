@@ -1,7 +1,7 @@
 /*jshint -W018, -W040, -W064, -W083, -W086 */
 
 import React from 'react';
-import { Route, RouteHandler, DefaultRoute, State, Link, Redirect } from 'react-router'; 
+import { Link } from 'react-router';
 import moment from 'moment';
 
 export default class ItemList extends React.Component {
@@ -14,28 +14,28 @@ export default class ItemList extends React.Component {
       } else {
         jsx = <div>
 
-          {items.map((it,i) => {
+          {items.map((it, i) => {
               let date = it.date ? moment(it.date).fromNow() : '';
               let title = it.title ? it.title : '';
               let tags = it.tags ? it.tags : '';
               let link = it.link.split('/').pop();
               return <div key={i} className="post itemlist">
                 <div className="date">{date}</div>
-                
+
                 <Link to="experiment" params={{link: link}}>
-                  <span>{title}</span> 
-                </Link>              
+                  <span>{title}</span>
+                </Link>
                 <div className="tags">
-                {tags.map((tag,i) => {
+                {tags.map((tag, i) => {
                   return <Link key={tag+i} className="tag" to="search" params={{query: tag}}>
                     {tag}
-                  </Link> 
+                  </Link>;
                 })}
                 </div>
-              </div>
+              </div>;
           })}
 
-        </div>
+        </div>;
       }
 
       return jsx;

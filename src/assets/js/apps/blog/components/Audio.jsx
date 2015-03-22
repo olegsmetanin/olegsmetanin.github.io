@@ -1,5 +1,3 @@
-/*jshint -W018, -W040, -W064, -W083, -W086 */
-
 import React from 'react';
 
 export default class Audio extends React.Component {
@@ -9,16 +7,16 @@ export default class Audio extends React.Component {
     this.state = { playing: false };
     this.handleClick = this.handleClick.bind(this);
   }
-  
-  componentDidMount () {    
+
+  componentDidMount () {
     this._player = React.findDOMNode(this.refs.favmelody);
   }
 
-  handleClick() {  
+  handleClick() {
     let playing = !this.state.playing;
-    this.setState({playing:playing});
+    this.setState({playing: playing});
     if (playing) {
-      this._player.play();  
+      this._player.play();
     } else {
       this._player.pause();
     }

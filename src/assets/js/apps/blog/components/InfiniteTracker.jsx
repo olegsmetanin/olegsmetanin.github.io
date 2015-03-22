@@ -1,5 +1,3 @@
-/*jshint -W018, -W040, -W064, -W083, -W086 */
-
 import React from 'react';
 
 function topPosition(domElt) {
@@ -31,7 +29,7 @@ export default class InfiniteTracker extends React.Component {
     }
   }
 
-  onResize(e) {
+  onResize() {
     this.onPageScroll();
   }
 
