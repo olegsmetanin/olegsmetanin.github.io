@@ -1,50 +1,41 @@
 import React from 'react';
-import { Route, RouteHandler, DefaultRoute, State, Link, Redirect, Navigation } from 'react-router';
-import { Flummox, Actions, Store } from 'flummox';
-import ItemList from './../components/ItemList.jsx';
-import DocumentTitle from 'react-document-title';
-import './../utils/Array.js';
-import marked from 'marked';
+import { RouteHandler, Link } from 'react-router';
 import { debounce } from './../utils/Timer.js';
 import Spinner from './../components/Spinner.jsx';
 
-let ExperimentsHandler = React.createClass({
+export default class ExperimentsHandler extends React.Component {
 
-  mixins: [State, Navigation],
-
-  statics: {
-  },
-
-  contextTypes: {
-    flux: React.PropTypes.object.isRequired,
-  },
-
-  getInitialState() {
-    return {
-        query: '',
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: '',
     };
-  },
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.setSearchQuery = this.setSearchQuery.bind(this);
+  }
 
   componentWillMount () {
-   let that = this;
-   this.handleSearchDebounced = debounce(function () {
-     this.handleSearch.apply(that, [this.state.query]);
-   }, 500);
-  },
+    let that = this;
+    this.handleSearchDebounced = debounce(function () {
+      this.handleSearch.apply(that, [this.state.query]);
+    }, 500);
+  }
 
   handleChange (event) {
     let query = event.target.value;
     this.setState({query: query});
     this.handleSearchDebounced();
-  },
+  }
 
   handleSearch (query) {
-    this.transitionTo('/search/'+query);
-  },
+    this.context.router.transitionTo('/search/'+query);
+  }
 
   setSearchQuery(query) {
     this.setState({query: query});
-  },
+  }
 
   render() {
     return <div className="content">
@@ -79,7 +70,9 @@ let ExperimentsHandler = React.createClass({
 
       </section>
     </div>;
-  },
-});
+  }
+}
 
-export default ExperimentsHandler;
+ExperimentsHandler.contextTypes = {
+  router: React.PropTypes.func.isRequired,
+};

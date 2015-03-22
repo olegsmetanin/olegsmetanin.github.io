@@ -1,11 +1,6 @@
 import React from 'react';
-import { Route, RouteHandler, DefaultRoute, State, Link, Redirect, Navigation } from 'react-router';
-import { Flummox, Actions, Store } from 'flummox';
-import ItemList from './../components/ItemList.jsx';
-import DocumentTitle from 'react-document-title';
-import './../utils/Array.js';
-import marked from 'marked';
-import { debounce } from './../utils/Timer.js';
+import { Link } from 'react-router';
+
 import Item from './../components/Item.jsx';
 
 export default class CVHandler extends React.Component {

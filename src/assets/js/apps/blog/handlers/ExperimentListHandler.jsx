@@ -1,43 +1,39 @@
 import React from 'react';
-import { Route, RouteHandler, DefaultRoute, State, Link, Redirect } from 'react-router';
-import { Flummox, Actions, Store } from 'flummox';
-import ItemList from './../components/ItemList.jsx';
-import DocumentTitle from 'react-document-title';
 import Item from './../components/Item.jsx';
 import InfiniteTracker from './../components/InfiniteTracker.jsx';
 import Spinner from './../components/Spinner.jsx';
 
-import './../utils/Array.js';
-import marked from 'marked';
+export default class ExperimentListHandler extends React.Component {
 
-let ExperimentListHandler = React.createClass({
-  mixins: [State],
-
-  contextTypes: {
-    flux: React.PropTypes.object.isRequired,
-  },
-
-  getInitialState() {
-    this.AppStore = this.context.flux.getStore('appStore');
-    return {
-        index: 0,
-        count: 1,
-        posts: this.AppStore.getLastExperiments(0, 1),
-        noMore: false,
+  constructor(props) {
+    super(props);
+    this.state = {
+      index: 0,
+      count: 1,
+      noMore: false,
     };
-  },
+
+    this.getFromStore = this.getFromStore.bind(this);
+    this.loadMore = this.loadMore.bind(this);
+
+  }
+
+  componentWillMount() {
+    this.AppStore = this.context.flux.getStore('appStore');
+    this.getFromStore();
+  }
 
   componentDidMount () {
-    this.AppStore.addListener('change', this.onAppStoreChange);
-  },
+    this.AppStore.addListener('change', this.getFromStore);
+  }
 
   componentWillUnmount() {
-    this.AppStore.removeListener('change', this.onAppStoreChange);
-  },
+    this.AppStore.removeListener('change', this.getFromStore);
+  }
 
-  onAppStoreChange () {
+  getFromStore () {
     this.setState({posts: this.AppStore.getLastExperiments(this.state.index, this.state.count)});
-  },
+  }
 
   loadMore() {
     var newCount = this.state.count + 3;
@@ -46,11 +42,11 @@ let ExperimentListHandler = React.createClass({
     var newState = {count: posts.length, posts: posts, noMore: noMore};
     this.setState(newState);
 
-  },
+  }
 
   render() {
     let posts = this.state.posts;
-    if (posts.store_miss) {
+    if (posts.STORE_MISS) {
         return <Spinner/>;
     } else {
         return <div>
@@ -64,7 +60,9 @@ let ExperimentListHandler = React.createClass({
 
          </div>;
     }
-  },
-});
+  }
+}
 
-export default ExperimentListHandler;
+ExperimentListHandler.contextTypes = {
+  flux: React.PropTypes.object.isRequired,
+};

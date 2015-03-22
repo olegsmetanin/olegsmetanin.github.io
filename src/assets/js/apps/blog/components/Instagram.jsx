@@ -1,39 +1,38 @@
-/*jshint -W018, -W040, -W064, -W083, -W086 */
-
 import React from 'react';
-import { Route, RouteHandler, DefaultRoute, State, Link, Redirect } from 'react-router';
-import marked from 'marked';
 import moment from 'moment';
 import Spinner from './../components/Spinner.jsx';
 
-let Instagram = React.createClass({
-  contextTypes: {
-    flux: React.PropTypes.object.isRequired,
-  },
+export default class Instagram extends React.Component {
 
-  getInitialState() {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.getFromStore = this.getFromStore.bind(this);
+  }
+
+  componentWillMount() {
     this.AppStore = this.context.flux.getStore('appStore');
-    return this.AppStore.getInstagrams(this.props.userid);
-  },
+    this.getFromStore();
+  }
 
   componentDidMount () {
-    this.AppStore.addListener('change', this.onAppStoreChange);
+    this.AppStore.addListener('change', this.getFromStore);
     let appActions = this.context.flux.getActions('appActions');
     appActions.getInstagrams({userid: this.props.userid, clientid: this.props.clientid});
-  },
+  }
 
   componentWillUnmount() {
-    this.AppStore.removeListener('change', this.onAppStoreChange);
-  },
+    this.AppStore.removeListener('change', this.getFromStore);
+  }
 
-  onAppStoreChange () {
+  getFromStore () {
     this.setState(this.AppStore.getInstagrams(this.props.userid));
-  },
+  }
 
   render () {
     var jsx;
 
-    if (this.state.store_miss) {
+    if (this.state.STORE_MISS) {
       jsx = <Spinner/>;
     } else {
       let data = this.state.data;
@@ -74,7 +73,9 @@ let Instagram = React.createClass({
       </div>;
     }
     return jsx;
-  },
-});
+  }
+}
 
-export default Instagram;
+Instagram.contextTypes = {
+  flux: React.PropTypes.object.isRequired,
+};

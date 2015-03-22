@@ -1,5 +1,3 @@
-/*jshint -W018, -W040, -W064, -W083, -W086 */
-
 import React from 'react';
 
 export default class Spinner extends React.Component {

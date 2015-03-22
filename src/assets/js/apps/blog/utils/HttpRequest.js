@@ -1,7 +1,6 @@
 import { Request } from 'superagent';
 import request from 'superagent';
 
-
 Request.prototype.jsonp = function () {
 
   var sel;

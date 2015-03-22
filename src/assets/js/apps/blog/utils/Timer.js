@@ -1,6 +1,3 @@
-"use strict";
-/*jshint -W018, -W040, -W064, -W083, -W086 */
-
 export function debounce(func, wait, immediate) {
   var timeout;
   return function() {

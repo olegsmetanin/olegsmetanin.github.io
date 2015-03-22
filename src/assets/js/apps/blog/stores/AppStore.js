@@ -1,8 +1,8 @@
-import { Flummox, Actions, Store } from 'flummox';
+import { Store } from 'flummox';
 import lru from 'lru-cache';
 import lunr from 'lunr';
 
-class AppStore extends Store {
+export default class AppStore extends Store {
 
   constructor(flux) {
     super();
@@ -111,5 +111,3 @@ class AppStore extends Store {
   }
 
 }
-
-export default AppStore;

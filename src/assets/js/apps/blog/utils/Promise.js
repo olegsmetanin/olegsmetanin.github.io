@@ -1,8 +1,4 @@
-"use strict";
-/*jshint -W018, -W040, -W064, -W083, -W086 */
-
-export async
-function performRouteHandlerStaticMethod(routes, methodName, ...args) {
+export async function performRouteHandlerStaticMethod(routes, methodName, ...args) {
     return Promise.all(routes
         .map(route => route.handler[methodName])
         .filter(method => typeof method === 'function')

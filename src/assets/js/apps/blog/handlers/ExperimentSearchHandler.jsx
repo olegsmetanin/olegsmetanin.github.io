@@ -1,69 +1,68 @@
 import React from 'react';
-import { Route, RouteHandler, DefaultRoute, State, Link, Redirect } from 'react-router';
-import { Flummox, Actions, Store } from 'flummox';
 import ItemList from './../components/ItemList.jsx';
-import DocumentTitle from 'react-document-title';
 import Spinner from './../components/Spinner.jsx';
 
-import { debounce } from './../utils/Timer.js';
-import moment from 'moment';
+export default class ExperimentSearchHandler extends React.Component {
 
-let ExperimentSearchHandler = React.createClass({
-  mixins: [State],
+  constructor(props) {
+    super(props);
+    this.state = {
+      setSearchQuery: this.props.setSearchQuery,
+    };
 
-  statics: {
-    willTransitionFrom(transition, component) {
+    this.getFromStore = this.getFromStore.bind(this);
+
+  }
+
+  static willTransitionFrom(transition, component) {
       if (transition.path.indexOf('/search/') !== 0) {
         component.state.setSearchQuery('');
       }
-    },
-  },
+  }
 
-  contextTypes: {
-    flux: React.PropTypes.object.isRequired,
-  },
-
-  getInitialState() {
+  componentWillMount() {
     this.AppStore = this.context.flux.getStore('appStore');
-    return {
-      query: this.getParams().query,
-      setSearchQuery: this.props.setSearchQuery,
-      items: this.AppStore.getSearchItems(this.getParams().query),
-    };
-  },
+    this.setState({
+      query: this.context.router.getCurrentParams().query,
+      items: this.AppStore.getSearchItems(this.context.router.getCurrentParams().query),
+    });
+  }
 
   componentWillReceiveProps() {
-    if (this.getParams().query !== this.state.query) {
-      this.setState({query: this.getParams().query, items: this.AppStore.getSearchItems(this.getParams().query)});
-      this.state.setSearchQuery(this.getParams().query);
+    if (this.context.router.getCurrentParams().query !== this.state.query) {
+      this.setState({query: this.context.router.getCurrentParams().query, items: this.AppStore.getSearchItems(this.context.router.getCurrentParams().query)});
+      this.state.setSearchQuery(this.context.router.getCurrentParams().query);
     }
-  },
+  }
 
   componentDidMount() {
-    this.AppStore.addListener('change', this.onAppStoreChange);
-    this.state.setSearchQuery(this.getParams().query);
-  },
+    this.AppStore.addListener('change', this.getFromStore);
+    this.state.setSearchQuery(this.context.router.getCurrentParams().query);
+  }
 
   componentWillUnmount() {
-    this.AppStore.removeListener('change', this.onAppStoreChange);
-  },
+    this.AppStore.removeListener('change', this.getFromStore);
+  }
 
-  onAppStoreChange () {
+  getFromStore () {
     this.setState({items: this.AppStore.getSearchItems(this.state.query)});
-  },
+  }
 
   render() {
     let items = this.state.items;
     var jsx;
 
-    if (items.store_miss) {
+    if (items.STORE_MISS) {
         jsx = <Spinner/>;
     } else {
         jsx = <ItemList src={items}/>;
     }
 
     return jsx;
-  },
-});
+  }
+}
 
-export default ExperimentSearchHandler;
+ExperimentSearchHandler.contextTypes = {
+  router: React.PropTypes.func.isRequired,
+  flux: React.PropTypes.object.isRequired,
+};

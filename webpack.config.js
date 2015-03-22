@@ -5,7 +5,7 @@ var webpack = require('webpack');
 module.exports = {
   entry: {
   	app:'./src/assets/js/apps/apps.js',
-  	lib: ["babel/polyfill", 'react', 'react-router', 'flummox', 'jquery', 'superagent', 'cheerio', 'fastclick', 'd3', 'lru-cache']
+  	lib: ["babel/polyfill", 'react', 'react-router', 'flummox', 'superagent', 'fastclick', 'd3', 'lru-cache']
   },
   output: {
     path: __dirname + '/dest/assets/js',
@@ -14,11 +14,11 @@ module.exports = {
   },
   devtool: "#source-map",
   plugins: [
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //       warnings: false
-    //   }
-    // }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+          warnings: false
+      }
+    }),
 	new webpack.optimize.CommonsChunkPlugin("lib", 'lib.js')
   ],
   resolve: {

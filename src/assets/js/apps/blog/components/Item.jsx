@@ -1,12 +1,9 @@
-/*global FB:true */
+/*global FB:true*/
 
 import React from 'react';
-import { Route, RouteHandler, DefaultRoute, State, Link, Redirect } from 'react-router';
 import marked from 'marked';
 import moment from 'moment';
 import Spinner from './../components/Spinner.jsx';
-import { PromiseUtils } from './../utils/Promise.js';
-
 
 export default class Item extends React.Component {
 
@@ -47,7 +44,6 @@ export default class Item extends React.Component {
   initFBComments() {
     if ( typeof (FB) !== 'undefined' && this.refs && this.refs.fb) {
         var el = React.findDOMNode(this.refs.fb);
-        React.unmountComponentAtNode(el);
         FB.XFBML.parse(el);
     } else {
       setTimeout(this.initFBComments, 300);
@@ -55,14 +51,13 @@ export default class Item extends React.Component {
   }
 
   render () {
-
-    let txt = this.state.text ? marked(this.state.text): 'loading';
-    let date = this.state.date ? moment(this.state.date).fromNow() : '';
     var jsx;
-    if (this.state.store_miss) {
+    if (this.state.STORE_MISS) {
       jsx = <Spinner/>;
     } else {
       let url = 'http://oleg.smetan.in/#'+this.props.link;
+      let txt = marked(this.state.text);
+      let date = moment(this.state.date).fromNow();
       jsx = <div className="post markdown">
         <div className="date">{date}</div>
         <div className="markdown" dangerouslySetInnerHTML={{__html: txt}}/>

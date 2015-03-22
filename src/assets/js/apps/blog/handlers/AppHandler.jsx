@@ -1,6 +1,6 @@
 /*global ga:true */
 import React from 'react';
-import { Route, RouteHandler, DefaultRoute, State, Link, Redirect } from 'react-router';
+import { RouteHandler, Link } from 'react-router';
 import Audio from './../components/Audio.jsx';
 
 export default class AppHandler extends React.Component {
