@@ -23,7 +23,8 @@ Hi, I’m Oleg, an enthusiastic and self-motivated web developer.
 - Akka
 - SBT
 - ScalaTest, specs2
-
+- ANSI/ISO SQL 1998 (Postgresql, Mysql)
+- Redis, Cassandra
 
 ## Last projects
 
@@ -31,17 +32,29 @@ Hi, I’m Oleg, an enthusiastic and self-motivated web developer.
 
 Web-based task manager with powerful search capabilities. View tasks as list, card, calendar, gantt chart. Add cusom fileds. Search by text, form or Domain Object Model. Report generation. See more at https://structuredway.com.
 
+Client-side: ES5, AngularJS, Angular-UI, jQuery, EasyXDM, Socket.IO, RequireJS, Bootstrap custom theme
+
+Server-side: ES5, Node.js, C#, nHibernate, ASP.NET, PostgreSQL, Redis, Nginx
+
 ### Spatial Data Management System <span class="gray">2013-2014</span>
 
 Web-based spatial data repository and task management in one box. Bulk import QuickBird, WorldView-1, WorldView-2, RapidEye, Ikonos, ALOS, Formosat-2 images using metadata files. View MapInfo, ESRI shape files. Create and assign data-processing tasks. See more [here](data/cv/SDMS.pdf).
-   
+
+Client-side: ES5, jQuery, Leaflet.JS, Bootstrap
+
+Server-side: C#, ASP.NET, MS SQL 2008, Nginx
+
 ### Cadastre Data Management System <span class="gray">2013-2014</span>
 
 Web-based real estate data management. View and search real estate records. Add cusom fileds. Generate reports. See more [here](data/cv/CDMS.pdf).
-   
+
 ### Document Management System <span class="gray">2012-2013</span>
 
 Web-based document and task management. Search by text, form or Domain Object Model. Report generation.
+
+Client-side: ES5, jQuery, Leaflet.JS
+
+Server-side: C#, ASP.NET, MS SQL 2008, Nginx
 
 ## Training
 
