@@ -25,6 +25,7 @@ Hi, I’m Oleg, an enthusiastic and self-motivated web developer.
 - ScalaTest, specs2
 - ANSI/ISO SQL 1998 (Postgresql, Mysql)
 - Redis, Cassandra
+- ElasticSearch
 
 ## Last projects
 
