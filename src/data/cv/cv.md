@@ -45,9 +45,13 @@ Client-side: ES5, jQuery, Leaflet.JS, Bootstrap
 
 Server-side: C#, ASP.NET, MS SQL 2008, Nginx
 
+<iframe src="http://docs.google.com/gview?url=http://oleg.smetan.in/data/cv/SDMS.pdf&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe>
+
 ### Cadastre Data Management System <span class="gray">2013-2014</span>
 
 Web-based real estate data management. View and search real estate records. Add cusom fileds. Generate reports. See more [here](data/cv/CDMS.pdf).
+
+<iframe src="http://docs.google.com/gview?url=http://oleg.smetan.in/data/cv/CDMS.pdf&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe>
 
 ### Document Management System <span class="gray">2012-2013</span>
 
