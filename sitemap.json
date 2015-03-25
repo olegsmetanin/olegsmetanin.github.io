@@ -3,7 +3,7 @@
         "type": "experiment",
         "date": "2015-03-17T12:49:26.733Z",
         "title": "This blog :)",
-        "tags": ["es7", "react", "react-router", "flummox", "lunr", "superagent", "gulp", "webpack"],
+        "tags": ["es6", "es7", "react", "react-router", "flummox", "lunr", "superagent", "gulp", "webpack"],
         "src": "data/experiments/blog/2015-03-17.md"
     },
 
@@ -11,7 +11,7 @@
         "type": "experiment",
         "date": "2015-03-13T15:49:26.733Z",
         "title": "Use GitHub API to search and view GitHub repos.",
-        "tags": ["es7", "react", "react-router", "flummox", "lunr", "superagent", "gulp", "webpack", "d3", "github api"],
+        "tags": ["es6", "es7", "react", "react-router", "flummox", "lunr", "superagent", "gulp", "webpack", "d3", "github api"],
         "src": "data/experiments/githubrepoviewer/2015-03-11.md"
     },
 
