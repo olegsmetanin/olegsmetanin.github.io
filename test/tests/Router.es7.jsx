@@ -8,9 +8,10 @@ describe('Router', function () {
   it('router context is available in componentWillMount', (done) => {
 
     class Widget extends React.Component {
-      constructor (props) {
+      constructor (props, context) {
         super(props);
         should.not.exist(this.context);
+        should.exist(context);
       }
 
       componentWillMount() {
@@ -32,9 +33,10 @@ describe('Router', function () {
     };
 
     class Page extends React.Component {
-      constructor (props) {
+      constructor (props, context) {
         super(props);
         should.not.exist(this.context);
+        should.exist(context);
       }
 
       componentWillMount() {
@@ -56,9 +58,10 @@ describe('Router', function () {
     };
 
     class Layout extends React.Component {
-      constructor (props) {
+      constructor (props, context) {
         super(props);
         should.not.exist(this.context);
+        should.exist(context);
       }
 
       componentWillMount() {
