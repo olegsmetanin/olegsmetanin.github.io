@@ -408,6 +408,9 @@ body {
 .fap-instagram:before {
   content: "\e104"; }
 
+.fap-pinterest:before {
+  content: "\e105"; }
+
 .fap-search4:before {
   content: "\e110"; }
 
@@ -568,7 +571,7 @@ body {
     max-width: 1190px; }
     .top-menu .top-menu-wrap-1 .top-menu-wrap-2 {
       margin-left: 220px; }
-      @media screen and (max-width: 446px) {
+      @media screen and (max-width: 495px) {
         .top-menu .top-menu-wrap-1 .top-menu-wrap-2 {
           margin-left: 0px;
           padding-top: 160px; } }
@@ -589,7 +592,7 @@ body {
       text-decoration: none;
       text-align: center;
       padding: 15px 15px 12px; }
-      @media screen and (max-width: 612px) {
+      @media screen and (max-width: 662px) {
         .top-menu ul.menu li.item {
           padding: 15px 6px 31px; }
           .top-menu ul.menu li.item .text {
@@ -718,6 +721,17 @@ section ul.menu {
   padding-right: 10px;
   color: #66757f;
   font-size: 24px; }
+
+.pinterest_pin {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+  border-radius: 6px;
+  width: 236px;
+  margin: 14px 7px 0 7px;
+  background-color: #0093D8; }
+  .pinterest_pin_description {
+    word-wrap: break-word;
+    color: #fff;
+    padding: 10px; }
 
 .audio {
   cursor: pointer; }
