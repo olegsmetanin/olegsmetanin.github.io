@@ -63,6 +63,12 @@ export default class AppHandler extends React.Component {
                    </Link>
                   </li>
                   <li className="item">
+                    <Link to="pinterest" activeClassName="active">
+                    <i className="fap fap-pinterest"></i>
+                    <div className="text">Pinterest</div>
+                   </Link>
+                  </li>
+                  <li className="item">
                     <Audio src="http://dl.zaycev.net/89856/1169607/secret_garden_-_lotus.mp3"/>
                   </li>
                 </ul>

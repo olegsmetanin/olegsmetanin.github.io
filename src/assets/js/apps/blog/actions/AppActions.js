@@ -38,5 +38,15 @@ export default class AppActions extends Actions {
       });
   }
 
+  async getPins(username) {
+      return await httpRequest
+      .get(`https://api.pinterest.com/v3/pidgets/users/${username}/pins/`)
+      .jsonp()
+      .exec()
+      .then(val => {
+        return {username: username, data: val.data};
+      });
+  }
+
 }
 

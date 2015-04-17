@@ -17,10 +17,6 @@
     },
     "parser": "babel-eslint",
     "rules": {
-        "comma-dangle": [
-            2,
-            "always-multiline"
-        ],
         "no-underscore-dangle": 0,
         "quotes": "single",
         "strict": 0

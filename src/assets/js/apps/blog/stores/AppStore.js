@@ -12,6 +12,7 @@ export default class AppStore extends Store {
     this.register(appActionIds.getSearchIndex, this.handleGetSearchIndex);
     this.register(appActionIds.getResource, this.handleGetResource);
     this.register(appActionIds.getInstagrams, this.handleGetInstagrams);
+    this.register(appActionIds.getPins, this.handleGetPins);
 
     this._siteMap = {};
     this._resourcesLRU = lru(20);
@@ -19,6 +20,7 @@ export default class AppStore extends Store {
     this._searchIndex = {};
 
     this._instagramLRU = lru(20);
+    this._pinsLRU = lru(20);
 
     this.state = {};
 
@@ -107,6 +109,24 @@ export default class AppStore extends Store {
 
   handleGetInstagrams(instagrams) {
     this._instagramLRU.set(instagrams.userid, instagrams);
+    this.emit('change');
+  }
+
+  getPins(username) {
+    var res,
+      lru = this._pinsLRU;
+    if (lru.has(username)) {
+      res = lru.get(username);
+      res.STORE_MISS = false;
+    } else {
+      res = {STORE_MISS: true};
+    }
+    return res;
+  }
+
+  handleGetPins(pinsData) {
+    let username = pinsData.username;
+    this._pinsLRU.set(username, pinsData);
     this.emit('change');
   }
 

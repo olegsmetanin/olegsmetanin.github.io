@@ -1,15 +1,7 @@
 'use strict';
 
 var gulp = require('gulp'),
-    babel_register = require("babel/register")({
-        experimental: true
-    }),
     babel = require('gulp-babel'),
-    browserify = require('browserify'),
-    babelify = require("babelify"),
-    source = require('vinyl-source-stream'),
-    exorcist = require('exorcist'),
-    uglifyify = require('uglifyify'),
     eslint = require('gulp-eslint'),
     gulpsass = require('gulp-sass'),
     sketch = require("gulp-sketch"),
@@ -19,7 +11,7 @@ var gulp = require('gulp'),
     webpack = require('gulp-webpack'),
     serve = require('gulp-serve'),
     lunrindex = require('./gulp-plugins/gulp-lunrindex.js'),
-    sitemap = require('./gulp-plugins/gulp-sitemap.js');  
+    sitemap = require('./gulp-plugins/gulp-sitemap.js');
 
 var dest = './dest',
     fontName = 'appfont';

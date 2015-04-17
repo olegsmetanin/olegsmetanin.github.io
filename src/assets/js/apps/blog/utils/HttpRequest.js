@@ -17,7 +17,8 @@ Request.prototype.jsonp = function () {
     this.callback = fn;
 
     sel = document.createElement('script');
-    sel.src = this.url + '&callback=' + this.jsonpCallbackName;
+    var sep = this.url.indexOf('?') === -1 ? '?' : '&';
+    sel.src =  this.url + sep +'callback=' + this.jsonpCallbackName;
     document.getElementsByTagName('head')[0].appendChild(sel);
   };
 
